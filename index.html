@@ -3,10 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>For Anam ❤️</title>
 
 <style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -26,37 +30,546 @@ body {
     justify-content: center;
     align-items: flex-start;
 
-    padding: 20px 0 40px;
-
-    font-family: "Segoe UI", Arial, sans-serif;
+    padding: 20px 0 50px;
 
     color: white;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
 
     background:
         radial-gradient(
             circle at 50% 10%,
-            #5b2055 0%,
-            #281332 35%,
-            #0b0713 80%
+            #5d2257 0%,
+            #281330 38%,
+            #09060e 80%
         );
 }
 
 
-/* =========================
-   BACKGROUND
-========================= */
+/* =========================================================
+   CINEMATIC INTRO
+========================================================= */
+
+#intro {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 99999;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #351737 0%,
+            #120914 45%,
+            #020104 100%
+        );
+
+    transition:
+        opacity 1.5s ease,
+        visibility 1.5s ease;
+}
+
+
+/* Intro stars */
+
+.intro-stars {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.9) 1px,
+            transparent 1.5px
+        ),
+
+        radial-gradient(
+            circle,
+            rgba(249,168,212,.7) 1px,
+            transparent 1.5px
+        );
+
+    background-size:
+        70px 80px,
+        130px 150px;
+
+    background-position:
+        0 0,
+        30px 40px;
+
+    opacity: 0;
+
+    animation:
+        starsAppear
+        3s
+        ease
+        .2s
+        forwards;
+}
+
+@keyframes starsAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+
+    to {
+        opacity: .5;
+        transform: scale(1);
+    }
+}
+
+
+/* Intro glow */
+
+.intro-glow {
+
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(244,114,182,.30),
+            rgba(236,72,153,.10),
+            transparent 70%
+        );
+
+    filter: blur(20px);
+
+    opacity: 0;
+
+    animation:
+        introGlow
+        5s
+        ease
+        forwards;
+}
+
+@keyframes introGlow {
+
+    0% {
+        opacity: 0;
+        transform: scale(.2);
+    }
+
+    50% {
+        opacity: .9;
+        transform: scale(1.3);
+    }
+
+    100% {
+        opacity: .45;
+        transform: scale(1);
+    }
+}
+
+
+/* Intro floating particles */
+
+.intro-particles span {
+
+    position: absolute;
+
+    color: #f9a8d4;
+
+    opacity: 0;
+
+    font-size: 18px;
+
+    animation:
+        introParticle
+        5s
+        linear
+        infinite;
+}
+
+.intro-particles span:nth-child(1) {
+    left: 10%;
+    top: 80%;
+    animation-delay: .5s;
+}
+
+.intro-particles span:nth-child(2) {
+    left: 22%;
+    top: 65%;
+    animation-delay: 1.2s;
+}
+
+.intro-particles span:nth-child(3) {
+    left: 78%;
+    top: 75%;
+    animation-delay: .8s;
+}
+
+.intro-particles span:nth-child(4) {
+    left: 88%;
+    top: 45%;
+    animation-delay: 1.8s;
+}
+
+.intro-particles span:nth-child(5) {
+    left: 35%;
+    top: 85%;
+    animation-delay: 2.2s;
+}
+
+.intro-particles span:nth-child(6) {
+    left: 67%;
+    top: 90%;
+    animation-delay: 2.8s;
+}
+
+.intro-particles span:nth-child(7) {
+    left: 50%;
+    top: 70%;
+    animation-delay: 1.5s;
+}
+
+.intro-particles span:nth-child(8) {
+    left: 15%;
+    top: 35%;
+    animation-delay: 3s;
+}
+
+@keyframes introParticle {
+
+    0% {
+        opacity: 0;
+        transform:
+            translateY(50px)
+            scale(.5);
+    }
+
+    25% {
+        opacity: .8;
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translateY(-300px)
+            scale(1.4);
+    }
+}
+
+
+/* Intro content */
+
+.intro-content {
+
+    position: relative;
+
+    z-index: 10;
+
+    width: 100%;
+
+    height: 220px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* Intro text */
+
+.intro-line {
+
+    position: absolute;
+
+    width: 90%;
+
+    max-width: 500px;
+
+    color:
+        rgba(255,255,255,.72);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(21px,5vw,32px);
+
+    line-height: 1.4;
+
+    opacity: 0;
+
+    animation:
+        introText
+        2.3s
+        ease
+        forwards;
+}
+
+#introLine1 {
+    animation-delay: .8s;
+}
+
+#introLine2 {
+    animation-delay: 2.7s;
+}
+
+@keyframes introText {
+
+    0% {
+        opacity: 0;
+        transform:
+            translateY(20px);
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translateY(-20px);
+    }
+}
+
+
+/* Intro heart */
+
+.intro-heart {
+
+    position: absolute;
+
+    font-size:
+        clamp(100px,25vw,180px);
+
+    line-height: 1;
+
+    color: transparent;
+
+    -webkit-text-stroke:
+        2px #f9a8d4;
+
+    filter:
+        drop-shadow(
+            0 0 25px
+            rgba(244,114,182,.6)
+        );
+
+    opacity: 0;
+
+    transform: scale(.25);
+
+    animation:
+        introHeart
+        2.6s
+        cubic-bezier(.2,.8,.2,1)
+        4.5s
+        forwards;
+}
+
+@keyframes introHeart {
+
+    0% {
+        opacity: 0;
+        transform: scale(.25);
+    }
+
+    20% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+
+    35% {
+        transform: scale(.95);
+    }
+
+    45% {
+        transform: scale(1.06);
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.55);
+    }
+}
+
+
+/* Intro final name */
+
+.intro-final {
+
+    position: absolute;
+
+    color: white;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(35px,9vw,70px);
+
+    letter-spacing:
+        .18em;
+
+    font-weight: 500;
+
+    white-space: nowrap;
+
+    text-shadow:
+        0 0 35px
+        rgba(249,168,212,.6);
+
+    opacity: 0;
+
+    transform:
+        scale(.8)
+        translateY(15px);
+
+    animation:
+        introFinal
+        2.2s
+        ease
+        6s
+        forwards;
+}
+
+@keyframes introFinal {
+
+    0% {
+        opacity: 0;
+        transform:
+            scale(.8)
+            translateY(15px);
+    }
+
+    25% {
+        opacity: 1;
+        transform:
+            scale(1)
+            translateY(0);
+    }
+
+    75% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            scale(1.08)
+            translateY(-10px);
+    }
+}
+
+
+/* Intro subtitle */
+
+.intro-sub {
+
+    position: absolute;
+
+    top: 115px;
+
+    color:
+        rgba(255,255,255,.45);
+
+    font-size: 10px;
+
+    letter-spacing:
+        .3em;
+
+    text-transform: uppercase;
+
+    opacity: 0;
+
+    animation:
+        introSub
+        1.5s
+        ease
+        6.5s
+        forwards;
+}
+
+@keyframes introSub {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: .75;
+        transform: translateY(0);
+    }
+}
+
+
+/* Hide intro */
+
+#intro.hide {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   BACKGROUND STARS
+========================================================= */
 
 .stars {
+
     position: fixed;
+
     inset: 0;
+
     pointer-events: none;
 
     background-image:
+
         radial-gradient(
             circle,
             rgba(255,255,255,.8) 1px,
             transparent 1.5px
         ),
+
         radial-gradient(
             circle,
             rgba(255,170,220,.5) 1px,
@@ -70,8 +583,15 @@ body {
     opacity: .35;
 }
 
+
+/* =========================================================
+   FLOATING HEARTS
+========================================================= */
+
 .hearts span {
+
     position: fixed;
+
     bottom: -50px;
 
     font-size: 20px;
@@ -134,15 +654,15 @@ body {
 }
 
 
-/* =========================
+/* =========================================================
    MAIN CONTAINER
-========================= */
+========================================================= */
 
 .container {
 
     position: relative;
 
-    width: min(94%, 620px);
+    width: min(94%,620px);
 
     border-radius: 36px;
 
@@ -166,9 +686,9 @@ body {
 }
 
 
-/* =========================
+/* =========================================================
    MUSIC BUTTON
-========================= */
+========================================================= */
 
 .music-button {
 
@@ -199,12 +719,55 @@ body {
 
     backdrop-filter:
         blur(10px);
+
+    transition: .25s;
+}
+
+.music-button:hover {
+
+    background:
+        rgba(255,255,255,.14);
+
+    transform:
+        translateY(-2px);
 }
 
 
-/* =========================
+/* Music status */
+
+.music-status {
+
+    position: absolute;
+
+    top: 60px;
+    right: 18px;
+
+    z-index: 40;
+
+    display: none;
+
+    padding:
+        8px 12px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(255,80,120,.15);
+
+    border:
+        1px solid
+        rgba(255,150,180,.2);
+
+    color:
+        rgba(255,255,255,.75);
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
    PAGES
-========================= */
+========================================================= */
 
 .page {
 
@@ -233,9 +796,12 @@ body {
 }
 
 #page4 {
-    justify-content: flex-start;
-    padding-top: 90px;
-    padding-bottom: 70px;
+
+    justify-content:
+        flex-start;
+
+    padding:
+        90px 25px 80px;
 }
 
 @keyframes pageIn {
@@ -258,9 +824,9 @@ body {
 }
 
 
-/* =========================
-   TEXT
-========================= */
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
 
 .eyebrow {
 
@@ -311,9 +877,9 @@ h1 {
 }
 
 
-/* =========================
+/* =========================================================
    HEART
-========================= */
+========================================================= */
 
 .big-heart {
 
@@ -336,7 +902,7 @@ h1 {
 
 @keyframes heartbeat {
 
-    0%, 100% {
+    0%,100% {
         transform: scale(1);
     }
 
@@ -346,9 +912,9 @@ h1 {
 }
 
 
-/* =========================
+/* =========================================================
    BUTTON
-========================= */
+========================================================= */
 
 .primary {
 
@@ -403,9 +969,9 @@ h1 {
 }
 
 
-/* =========================
+/* =========================================================
    LOVE METER
-========================= */
+========================================================= */
 
 .meter {
 
@@ -454,9 +1020,9 @@ h1 {
 }
 
 
-/* =========================
-   PROGRESS
-========================= */
+/* =========================================================
+   PROGRESS BAR
+========================================================= */
 
 .progress {
 
@@ -512,7 +1078,8 @@ input[type="range"] {
 
     display: flex;
 
-    justify-content: space-between;
+    justify-content:
+        space-between;
 
     color:
         rgba(255,255,255,.4);
@@ -532,9 +1099,9 @@ input[type="range"] {
 }
 
 
-/* =========================
-   100%
-========================= */
+/* =========================================================
+   100% REVEAL
+========================================================= */
 
 .hundred {
 
@@ -585,9 +1152,9 @@ input[type="range"] {
 }
 
 
-/* =========================
+/* =========================================================
    GIFT
-========================= */
+========================================================= */
 
 .gift-area {
 
@@ -764,9 +1331,9 @@ input[type="range"] {
 }
 
 
-/* =========================
+/* =========================================================
    LETTER
-========================= */
+========================================================= */
 
 .letter {
 
@@ -794,7 +1361,7 @@ input[type="range"] {
 
     box-shadow:
         0 20px 60px
-        rgba(0,0,0,.2);
+        rgba(0,0,0,.25);
 
     animation:
         letterIn
@@ -864,49 +1431,15 @@ input[type="range"] {
         opacity: 1;
 
         transform:
-            none;
+            translateY(0)
+            scale(1);
     }
 }
 
 
-/* =========================
-   MUSIC ERROR
-========================= */
-
-.music-status {
-
-    position: absolute;
-
-    top: 60px;
-
-    right: 18px;
-
-    z-index: 40;
-
-    display: none;
-
-    padding:
-        8px 12px;
-
-    border-radius: 15px;
-
-    background:
-        rgba(255,80,120,.15);
-
-    border:
-        1px solid
-        rgba(255,150,180,.2);
-
-    color:
-        rgba(255,255,255,.75);
-
-    font-size: 11px;
-}
-
-
-/* =========================
+/* =========================================================
    MOBILE
-========================= */
+========================================================= */
 
 @media(max-width:500px) {
 
@@ -955,7 +1488,18 @@ input[type="range"] {
         padding:
             27px 20px;
     }
+
+    .intro-final {
+
+        letter-spacing:
+            .10em;
+    }
 }
+
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
 
 @media(prefers-reduced-motion:reduce) {
 
@@ -972,9 +1516,74 @@ input[type="range"] {
 <body>
 
 
-<!-- BACKGROUND -->
+<!-- =====================================================
+     CINEMATIC INTRO
+===================================================== -->
+
+<div id="intro">
+
+    <div class="intro-stars"></div>
+
+    <div class="intro-glow"></div>
+
+    <div class="intro-particles">
+
+        <span>✦</span>
+        <span>·</span>
+        <span>✧</span>
+        <span>·</span>
+        <span>✦</span>
+        <span>·</span>
+        <span>✧</span>
+        <span>·</span>
+
+    </div>
+
+
+    <div class="intro-content">
+
+        <div
+            class="intro-line"
+            id="introLine1"
+        >
+            Some things...
+        </div>
+
+
+        <div
+            class="intro-line"
+            id="introLine2"
+        >
+            can't be measured.
+        </div>
+
+
+        <div class="intro-heart">
+            ♡
+        </div>
+
+
+        <div class="intro-final">
+            FOR ANAM
+        </div>
+
+
+        <div class="intro-sub">
+            ✦ made especially for you ✦
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
 
 <div class="stars"></div>
+
 
 <div class="hearts">
 
@@ -986,367 +1595,377 @@ input[type="range"] {
 </div>
 
 
-<!-- MAIN -->
+
+<!-- =====================================================
+     MAIN CONTAINER
+===================================================== -->
 
 <div class="container">
 
 
-<!-- MUSIC BUTTON -->
-
-<button
-    class="music-button"
-    id="musicButton"
-    type="button"
->
-    ♪ Music OFF
-</button>
-
-
-<div
-    class="music-status"
-    id="musicStatus"
->
-    Tap Music to play 🎵
-</div>
-
-
-<!-- =================================
-     PAGE 1
-================================= -->
-
-<section
-    class="page active"
-    id="page1"
->
-
-    <div class="eyebrow">
-        A little surprise
-    </div>
-
-
-    <div class="big-heart">
-        ❤️
-    </div>
-
-
-    <h1>
-        For Anam
-    </h1>
-
-
-    <p class="subtitle">
-
-        I made something
-        especially for you.
-
-        <br><br>
-
-        There is one very important
-        question I want you to answer.
-
-    </p>
-
+    <!-- MUSIC BUTTON -->
 
     <button
-        class="primary"
-        id="beginButton"
+        class="music-button"
+        id="musicButton"
         type="button"
     >
-        Begin ✨
+        ♪ Music OFF
     </button>
 
-</section>
 
+    <!-- MUSIC STATUS -->
 
-
-<!-- =================================
-     PAGE 2
-================================= -->
-
-<section
-    class="page"
-    id="page2"
->
-
-    <div class="eyebrow">
-        Love Measurement System
+    <div
+        class="music-status"
+        id="musicStatus"
+    >
+        Tap Music to play 🎵
     </div>
 
 
-    <h1>
-        How much<br>
-        do you love me?
-    </h1>
 
+    <!-- =================================================
+         PAGE 1
+    ================================================== -->
 
-    <div class="meter">
+    <section
+        class="page active"
+        id="page1"
+    >
 
-
-        <div
-            class="emoji"
-            id="emoji"
-        >
-            🤔
+        <div class="eyebrow">
+            A little surprise
         </div>
 
 
-        <div
-            class="percentage"
-            id="percentage"
-        >
-            0%
+        <div class="big-heart">
+            ❤️
         </div>
 
 
-        <div
-            class="message"
-            id="message"
-        >
-            Move the scale to begin...
-        </div>
+        <h1>
+            For Anam
+        </h1>
 
 
-        <div class="progress">
+        <p class="subtitle">
 
-            <div
-                class="progress-bar"
-                id="progressBar"
-            ></div>
+            I made something
+            especially for you.
 
-        </div>
+            <br><br>
 
+            There is one very important
+            question I want you to answer.
 
-        <input
-            type="range"
-            id="loveSlider"
-            min="0"
-            max="100"
-            value="0"
-            aria-label="Love percentage"
-        >
-
-
-        <div class="labels">
-
-            <span>0%</span>
-
-            <span>50%</span>
-
-            <span>100% ❤️</span>
-
-        </div>
-
-
-        <div
-            class="warning"
-            id="warning"
-        ></div>
+        </p>
 
 
         <button
             class="primary"
-            id="lockButton"
+            id="beginButton"
             type="button"
-            disabled
         >
-            Lock my answer 🔒
+            Begin ✨
         </button>
 
-
-    </div>
-
-</section>
+    </section>
 
 
 
-<!-- =================================
-     PAGE 3
-================================= -->
+    <!-- =================================================
+         PAGE 2
+    ================================================== -->
 
-<section
-    class="page"
-    id="page3"
->
-
-    <div
-        style="
-        font-size:30px;
-        letter-spacing:8px;
-        margin-bottom:10px;
-        "
+    <section
+        class="page"
+        id="page2"
     >
-        ✨ 💗 ✨
-    </div>
+
+        <div class="eyebrow">
+            Love Measurement System
+        </div>
 
 
-    <div class="hundred">
-        100%
-    </div>
+        <h1>
+            How much<br>
+            do you love me?
+        </h1>
 
 
-    <h1>
-        YOU BROKE<br>
-        THE SCALE.
-    </h1>
+        <div class="meter">
 
 
-    <p class="subtitle">
-
-        Anam...
-
-        <br><br>
-
-        The system was only designed
-        to measure up to 100%.
-
-        Apparently,
-        even that wasn't enough.
-
-    </p>
+            <div
+                class="emoji"
+                id="emoji"
+            >
+                🤔
+            </div>
 
 
-    <button
-        class="primary"
-        id="giftButton"
-        type="button"
+            <div
+                class="percentage"
+                id="percentage"
+            >
+                0%
+            </div>
+
+
+            <div
+                class="message"
+                id="message"
+            >
+                Move the scale to begin...
+            </div>
+
+
+            <div class="progress">
+
+                <div
+                    class="progress-bar"
+                    id="progressBar"
+                ></div>
+
+            </div>
+
+
+            <input
+                type="range"
+                id="loveSlider"
+                min="0"
+                max="100"
+                value="0"
+                aria-label="Love percentage"
+            >
+
+
+            <div class="labels">
+
+                <span>0%</span>
+
+                <span>50%</span>
+
+                <span>100% ❤️</span>
+
+            </div>
+
+
+            <div
+                class="warning"
+                id="warning"
+            ></div>
+
+
+            <button
+                class="primary"
+                id="lockButton"
+                type="button"
+                disabled
+            >
+                Lock my answer 🔒
+            </button>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         PAGE 3
+    ================================================== -->
+
+    <section
+        class="page"
+        id="page3"
     >
-        There is something for you 🎁
-    </button>
-
-</section>
-
-
-
-<!-- =================================
-     PAGE 4
-================================= -->
-
-<section
-    class="page"
-    id="page4"
->
-
-    <div class="eyebrow">
-        Especially for Anam
-    </div>
-
-
-    <h1>
-        A little gift<br>
-        for you.
-    </h1>
-
-
-    <div class="gift-area">
 
         <div
-            class="gift"
-            id="gift"
-            role="button"
-            tabindex="0"
-            aria-label="Open the gift"
+            style="
+                font-size:30px;
+                letter-spacing:8px;
+                margin-bottom:10px;
+            "
+        >
+            ✨ 💗 ✨
+        </div>
+
+
+        <div class="hundred">
+            100%
+        </div>
+
+
+        <h1>
+            YOU BROKE<br>
+            THE SCALE.
+        </h1>
+
+
+        <p class="subtitle">
+
+            Anam...
+
+            <br><br>
+
+            The system was only designed
+            to measure up to 100%.
+
+            Apparently,
+            even that wasn't enough.
+
+        </p>
+
+
+        <button
+            class="primary"
+            id="giftButton"
+            type="button"
+        >
+            There is something for you 🎁
+        </button>
+
+    </section>
+
+
+
+    <!-- =================================================
+         PAGE 4
+    ================================================== -->
+
+    <section
+        class="page"
+        id="page4"
+    >
+
+        <div class="eyebrow">
+            Especially for Anam
+        </div>
+
+
+        <h1>
+            A little gift<br>
+            for you.
+        </h1>
+
+
+        <div class="gift-area">
+
+            <div
+                class="gift"
+                id="gift"
+                role="button"
+                tabindex="0"
+                aria-label="Open the gift"
+            >
+
+                <div class="bow"></div>
+
+                <div class="gift-lid"></div>
+
+                <div class="gift-body"></div>
+
+                <div class="ribbon-v"></div>
+
+                <div class="ribbon-h"></div>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="tapText"
+            style="
+                color:rgba(255,255,255,.5);
+            "
+        >
+            Tap the gift to open it 🎁
+        </div>
+
+
+        <!-- LETTER -->
+
+        <div
+            class="letter"
+            id="letter"
+            hidden
         >
 
-            <div class="bow"></div>
-
-            <div class="gift-lid"></div>
-
-            <div class="gift-body"></div>
-
-            <div class="ribbon-v"></div>
-
-            <div class="ribbon-h"></div>
-
-        </div>
-
-    </div>
+            <div class="letter-icon">
+                💌
+            </div>
 
 
-    <div
-        id="tapText"
-        style="
-        color:rgba(255,255,255,.5);
-        "
-    >
-        Tap the gift to open it 🎁
-    </div>
+            <h2>
+                Dear Anam
+            </h2>
 
 
-    <!-- LETTER -->
-
-    <div
-        class="letter"
-        id="letter"
-        hidden
-    >
-
-        <div class="letter-icon">
-            💌
-        </div>
+            <p>
+                I made this little world
+                just for you.
+            </p>
 
 
-        <h2>
-            Dear Anam
-        </h2>
+            <p>
+
+                The scale was supposed
+                to measure something simple...
+
+                but I think we discovered
+                a problem.
+
+                <strong>
+                    There isn't really
+                    a number big enough.
+                </strong>
+
+            </p>
 
 
-        <p>
-            I made this little world
-            just for you.
-        </p>
+            <p>
+
+                I hope this little surprise
+                made you smile.
+
+                Because honestly,
+                seeing you smile is already
+                something special to me. ❤️
+
+            </p>
 
 
-        <p>
-            The scale was supposed
-            to measure something simple...
+            <div class="signature">
 
-            but I think we discovered
-            a problem.
+                With love,
 
-            <strong>
-                There isn't really
-                a number big enough.
-            </strong>
-        </p>
+                <br>
 
+                Abdul Rahman ❤️
 
-        <p>
-            I hope this little surprise
-            made you smile.
-
-            Because honestly,
-            seeing you smile is already
-            something special to me. ❤️
-        </p>
-
-
-        <div class="signature">
-
-            With love,
-
-            <br>
-
-            Abdul Rahman ❤️
+            </div>
 
         </div>
 
-    </div>
 
+        <div style="height:40px"></div>
 
-    <div
-        id="bottomSpace"
-        style="height:40px"
-    ></div>
-
-</section>
-
+    </section>
 
 </div>
 
 
-<!-- =================================
+
+<!-- =====================================================
      AUDIO
-================================= -->
+
+     IMPORTANT:
+     safari.mp3 must be in the SAME folder as index.html
+===================================================== -->
 
 <audio
     id="song"
@@ -1355,11 +1974,9 @@ input[type="range"] {
 >
 
     <source
-        src="safari.mp3"
+        src="./safari.mp3"
         type="audio/mpeg"
     >
-
-    Your browser does not support audio.
 
 </audio>
 
@@ -1367,47 +1984,78 @@ input[type="range"] {
 
 <script>
 
+/* =========================================================
+   CINEMATIC INTRO
+========================================================= */
 
-/* =================================
+const intro =
+    document.getElementById("intro");
+
+
+/*
+   Intro lasts about 8.2 seconds.
+*/
+
+setTimeout(() => {
+
+    intro.classList.add("hide");
+
+    setTimeout(() => {
+
+        intro.style.display = "none";
+
+    }, 1600);
+
+}, 8200);
+
+
+
+/* =========================================================
    PAGE SYSTEM
-================================= */
+========================================================= */
 
 const pages = [
+
     document.getElementById("page1"),
+
     document.getElementById("page2"),
+
     document.getElementById("page3"),
+
     document.getElementById("page4")
+
 ];
 
 
 function showPage(number) {
 
-    pages.forEach((page, index) => {
+    pages.forEach(
+        (page, index) => {
 
-        page.classList.toggle(
-            "active",
-            index === number
-        );
+            page.classList.toggle(
+                "active",
+                index === number
+            );
 
-    });
+        }
+    );
 
-    /*
-       Always start the new page
-       from the top.
-    */
 
     window.scrollTo({
+
         top: 0,
+
         behavior: "smooth"
+
     });
 
 }
 
 
 
-/* =================================
+/* =========================================================
    MUSIC SYSTEM
-================================= */
+========================================================= */
 
 const song =
     document.getElementById("song");
@@ -1423,7 +2071,10 @@ let musicPlaying = false;
 
 
 /*
-   Try to start the song.
+   Start music.
+
+   This function is called from
+   an actual user click.
 */
 
 async function startMusic() {
@@ -1433,10 +2084,9 @@ async function startMusic() {
         song.volume = 0.35;
 
         /*
-           Reload the audio source if necessary.
+           Make sure browser knows
+           about the audio file.
         */
-
-        song.load();
 
         await song.play();
 
@@ -1455,7 +2105,7 @@ async function startMusic() {
     catch(error) {
 
         console.log(
-            "Audio playback failed:",
+            "Music playback blocked:",
             error
         );
 
@@ -1471,6 +2121,7 @@ async function startMusic() {
             "block";
 
         return false;
+
     }
 
 }
@@ -1517,9 +2168,9 @@ musicButton.addEventListener(
 
 
 
-/* =================================
+/* =========================================================
    BEGIN
-================================= */
+========================================================= */
 
 document
 .getElementById("beginButton")
@@ -1529,8 +2180,9 @@ document
 
         /*
            IMPORTANT:
-           Audio playback happens directly
-           inside the user's click event.
+
+           The music play request happens
+           directly inside the user's click.
         */
 
         await startMusic();
@@ -1542,9 +2194,9 @@ document
 
 
 
-/* =================================
+/* =========================================================
    LOVE METER
-================================= */
+========================================================= */
 
 const slider =
     document.getElementById("loveSlider");
@@ -1588,7 +2240,8 @@ slider.addEventListener(
             value === 0;
 
 
-        warning.textContent = "";
+        warning.textContent =
+            "";
 
 
         if (value === 0) {
@@ -1679,9 +2332,9 @@ slider.addEventListener(
 
 
 
-/* =================================
+/* =========================================================
    LOCK ANSWER
-================================= */
+========================================================= */
 
 lockButton.addEventListener(
     "click",
@@ -1693,18 +2346,16 @@ lockButton.addEventListener(
 
         if (value === 100) {
 
-            /*
-               Keep music playing.
-            */
-
             if (!musicPlaying) {
 
                 await startMusic();
 
             }
 
+
             /*
-               Slight volume increase.
+               Slight music increase
+               for the reveal.
             */
 
             song.volume = 0.45;
@@ -1726,9 +2377,9 @@ lockButton.addEventListener(
 
 
 
-/* =================================
+/* =========================================================
    GIFT PAGE
-================================= */
+========================================================= */
 
 document
 .getElementById("giftButton")
@@ -1743,9 +2394,9 @@ document
 
 
 
-/* =================================
+/* =========================================================
    OPEN GIFT
-================================= */
+========================================================= */
 
 const gift =
     document.getElementById("gift");
@@ -1757,19 +2408,21 @@ const tapText =
     document.getElementById("tapText");
 
 
+let giftOpened = false;
+
+
 function openGift() {
 
-    /*
-       Prevent opening twice.
-    */
-
-    if (!letter.hidden) {
+    if (giftOpened) {
         return;
     }
 
 
+    giftOpened = true;
+
+
     /*
-       Gift animation.
+       Gift moves away.
     */
 
     gift.style.transform =
@@ -1791,28 +2444,35 @@ function openGift() {
 
 
             /*
-               Wait for browser to render
-               the newly visible letter.
+               Wait for the letter
+               to actually render.
             */
 
             requestAnimationFrame(
                 () => {
 
-                    /*
-                       THIS FIXES THE
-                       SCROLL PROBLEM.
-                    */
+                    setTimeout(
+                        () => {
 
-                    letter.scrollIntoView({
-                        behavior: "smooth",
-                        block: "center"
-                    });
+                            letter.scrollIntoView({
+
+                                behavior:
+                                    "smooth",
+
+                                block:
+                                    "center"
+
+                            });
+
+                        },
+                        100
+                    );
 
                 }
             );
 
         },
-        400
+        450
     );
 
 }
@@ -1829,7 +2489,7 @@ gift.addEventListener(
 
 
 /*
-   Keyboard accessibility.
+   Keyboard.
 */
 
 gift.addEventListener(
@@ -1852,9 +2512,9 @@ gift.addEventListener(
 
 
 
-/* =================================
-   AUDIO ERROR DETECTION
-================================= */
+/* =========================================================
+   AUDIO ERROR
+========================================================= */
 
 song.addEventListener(
     "error",
@@ -1864,7 +2524,7 @@ song.addEventListener(
             "♪ Music unavailable";
 
         musicStatus.textContent =
-            "The song file could not be loaded.";
+            "safari.mp3 could not be loaded.";
 
         musicStatus.style.display =
             "block";
@@ -1874,8 +2534,7 @@ song.addEventListener(
 
 
 /*
-   If audio naturally starts,
-   keep button synchronized.
+   Synchronize button.
 */
 
 song.addEventListener(
