@@ -7,26 +7,30 @@
 <title>For Anam ❤️</title>
 
 <style>
-
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-body{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    overflow:hidden;
+html {
+    scroll-behavior: smooth;
+}
 
-    font-family:
-        "Segoe UI",
-        Arial,
-        sans-serif;
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
 
-    color:white;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding: 20px 0 40px;
+
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    color: white;
 
     background:
         radial-gradient(
@@ -39,12 +43,13 @@ body{
 
 
 /* =========================
-   STARS
+   BACKGROUND
 ========================= */
 
-.stars{
-    position:fixed;
-    inset:0;
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
 
     background-image:
         radial-gradient(
@@ -62,21 +67,18 @@ body{
         75px 85px,
         130px 145px;
 
-    opacity:.35;
+    opacity: .35;
 }
 
+.hearts span {
+    position: fixed;
+    bottom: -50px;
 
-/* =========================
-   FLOATING HEARTS
-========================= */
+    font-size: 20px;
 
-.hearts span{
-    position:fixed;
-    bottom:-50px;
+    opacity: 0;
 
-    font-size:20px;
-
-    opacity:0;
+    pointer-events: none;
 
     animation:
         floatingHeart
@@ -85,68 +87,66 @@ body{
         infinite;
 }
 
-.hearts span:nth-child(1){
-    left:8%;
+.hearts span:nth-child(1) {
+    left: 8%;
 }
 
-.hearts span:nth-child(2){
-    left:25%;
-    animation-delay:2s;
+.hearts span:nth-child(2) {
+    left: 25%;
+    animation-delay: 2s;
 }
 
-.hearts span:nth-child(3){
-    left:70%;
-    animation-delay:4s;
+.hearts span:nth-child(3) {
+    left: 70%;
+    animation-delay: 4s;
 }
 
-.hearts span:nth-child(4){
-    left:90%;
-    animation-delay:1s;
+.hearts span:nth-child(4) {
+    left: 90%;
+    animation-delay: 1s;
 }
 
-@keyframes floatingHeart{
+@keyframes floatingHeart {
 
-    0%{
+    0% {
         transform:
             translateY(0)
             rotate(0deg);
 
-        opacity:0;
+        opacity: 0;
     }
 
-    15%{
-        opacity:.5;
+    15% {
+        opacity: .5;
     }
 
-    85%{
-        opacity:.25;
+    85% {
+        opacity: .25;
     }
 
-    100%{
+    100% {
         transform:
             translateY(-100vh)
             rotate(35deg);
 
-        opacity:0;
+        opacity: 0;
     }
 }
 
 
 /* =========================
-   MAIN
+   MAIN CONTAINER
 ========================= */
 
-.container{
+.container {
 
-    position:relative;
+    position: relative;
 
-    width:min(94%,620px);
+    width: min(94%, 620px);
 
-    min-height:680px;
+    border-radius: 36px;
 
-    border-radius:36px;
-
-    overflow:hidden;
+    overflow: visible;
 
     background:
         rgba(255,255,255,.055);
@@ -162,7 +162,7 @@ body{
         0 30px 100px
         rgba(0,0,0,.55);
 
-    text-align:center;
+    text-align: center;
 }
 
 
@@ -170,14 +170,14 @@ body{
    MUSIC BUTTON
 ========================= */
 
-.music-button{
+.music-button {
 
-    position:absolute;
+    position: absolute;
 
-    top:18px;
-    right:18px;
+    top: 18px;
+    right: 18px;
 
-    z-index:20;
+    z-index: 50;
 
     border:
         1px solid
@@ -186,20 +186,19 @@ body{
     background:
         rgba(255,255,255,.08);
 
-    color:white;
+    color: white;
 
     padding:
-        9px
-        14px;
+        9px 14px;
 
-    border-radius:30px;
+    border-radius: 30px;
 
-    cursor:pointer;
+    cursor: pointer;
 
-    font-size:12px;
+    font-size: 12px;
 
-    backdrop-filter:blur(10px);
-
+    backdrop-filter:
+        blur(10px);
 }
 
 
@@ -207,25 +206,25 @@ body{
    PAGES
 ========================= */
 
-.page{
+.page {
 
-    display:none;
+    display: none;
 
-    min-height:680px;
+    min-height: 680px;
 
     padding:
-        50px 25px;
+        65px 25px 50px;
 
-    flex-direction:column;
+    flex-direction: column;
 
-    justify-content:center;
+    justify-content: center;
 
-    align-items:center;
+    align-items: center;
 }
 
-.page.active{
+.page.active {
 
-    display:flex;
+    display: flex;
 
     animation:
         pageIn
@@ -233,18 +232,24 @@ body{
         ease;
 }
 
-@keyframes pageIn{
+#page4 {
+    justify-content: flex-start;
+    padding-top: 90px;
+    padding-bottom: 70px;
+}
 
-    from{
-        opacity:0;
+@keyframes pageIn {
+
+    from {
+        opacity: 0;
 
         transform:
             translateY(25px)
             scale(.97);
     }
 
-    to{
-        opacity:1;
+    to {
+        opacity: 1;
 
         transform:
             translateY(0)
@@ -257,20 +262,20 @@ body{
    TEXT
 ========================= */
 
-.eyebrow{
+.eyebrow {
 
-    font-size:10px;
+    font-size: 10px;
 
-    letter-spacing:4px;
+    letter-spacing: 4px;
 
-    text-transform:uppercase;
+    text-transform: uppercase;
 
-    color:#f9a8d4;
+    color: #f9a8d4;
 
-    margin-bottom:15px;
+    margin-bottom: 15px;
 }
 
-h1{
+h1 {
 
     font-family:
         Georgia,
@@ -284,25 +289,25 @@ h1{
             60px
         );
 
-    line-height:1;
+    line-height: 1;
 
-    letter-spacing:-3px;
+    letter-spacing: -3px;
 
-    font-weight:500;
+    font-weight: 500;
 
-    margin-bottom:20px;
+    margin-bottom: 20px;
 }
 
-.subtitle{
+.subtitle {
 
-    max-width:450px;
+    max-width: 450px;
 
     color:
         rgba(255,255,255,.65);
 
-    line-height:1.8;
+    line-height: 1.8;
 
-    font-size:15px;
+    font-size: 15px;
 }
 
 
@@ -310,9 +315,9 @@ h1{
    HEART
 ========================= */
 
-.big-heart{
+.big-heart {
 
-    font-size:100px;
+    font-size: 100px;
 
     margin:
         20px 0;
@@ -329,14 +334,14 @@ h1{
         infinite;
 }
 
-@keyframes heartbeat{
+@keyframes heartbeat {
 
-    0%,100%{
-        transform:scale(1);
+    0%, 100% {
+        transform: scale(1);
     }
 
-    50%{
-        transform:scale(1.12);
+    50% {
+        transform: scale(1.12);
     }
 }
 
@@ -345,17 +350,16 @@ h1{
    BUTTON
 ========================= */
 
-.primary{
+.primary {
 
-    margin-top:28px;
+    margin-top: 28px;
 
     padding:
-        16px
-        28px;
+        16px 28px;
 
-    border:none;
+    border: none;
 
-    border-radius:18px;
+    border-radius: 18px;
 
     background:
         linear-gradient(
@@ -364,22 +368,22 @@ h1{
             #ec4899
         );
 
-    color:white;
+    color: white;
 
-    font-size:16px;
+    font-size: 16px;
 
-    font-weight:800;
+    font-weight: 800;
 
-    cursor:pointer;
+    cursor: pointer;
 
     box-shadow:
         0 15px 40px
         rgba(236,72,153,.35);
 
-    transition:.25s;
+    transition: .25s;
 }
 
-.primary:hover{
+.primary:hover {
 
     transform:
         translateY(-4px);
@@ -389,33 +393,42 @@ h1{
         rgba(236,72,153,.5);
 }
 
+.primary:disabled {
+
+    opacity: .45;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
 
 /* =========================
    LOVE METER
 ========================= */
 
-.meter{
+.meter {
 
     width:
         min(480px,100%);
 }
 
-.emoji{
+.emoji {
 
-    font-size:70px;
+    font-size: 70px;
 
-    margin:10px;
+    margin: 10px;
 
-    transition:.3s;
+    transition: .3s;
 }
 
-.percentage{
+.percentage {
 
-    font-size:80px;
+    font-size: 80px;
 
-    font-weight:950;
+    font-weight: 950;
 
-    letter-spacing:-6px;
+    letter-spacing: -6px;
 
     background:
         linear-gradient(
@@ -425,48 +438,48 @@ h1{
             #ec4899
         );
 
-    -webkit-background-clip:text;
+    -webkit-background-clip: text;
 
-    color:transparent;
+    color: transparent;
 }
 
-.message{
+.message {
 
-    height:25px;
+    min-height: 25px;
 
     color:
         rgba(255,255,255,.6);
 
-    font-size:14px;
+    font-size: 14px;
 }
 
 
 /* =========================
-   PROGRESS BAR
+   PROGRESS
 ========================= */
 
-.progress{
+.progress {
 
-    height:17px;
+    height: 17px;
 
     margin:
         25px 0 8px;
 
-    padding:3px;
+    padding: 3px;
 
-    border-radius:30px;
+    border-radius: 30px;
 
     background:
         rgba(255,255,255,.1);
 }
 
-.progress-bar{
+.progress-bar {
 
-    height:100%;
+    height: 100%;
 
-    width:0%;
+    width: 0%;
 
-    border-radius:30px;
+    border-radius: 30px;
 
     background:
         linear-gradient(
@@ -484,38 +497,38 @@ h1{
         width .3s;
 }
 
-input[type="range"]{
+input[type="range"] {
 
-    width:100%;
+    width: 100%;
 
-    height:45px;
+    height: 45px;
 
-    accent-color:#ec4899;
+    accent-color: #ec4899;
 
-    cursor:pointer;
+    cursor: pointer;
 }
 
-.labels{
+.labels {
 
-    display:flex;
+    display: flex;
 
-    justify-content:space-between;
+    justify-content: space-between;
 
     color:
         rgba(255,255,255,.4);
 
-    font-size:11px;
+    font-size: 11px;
 }
 
-.warning{
+.warning {
 
-    height:22px;
+    min-height: 22px;
 
-    margin-top:10px;
+    margin-top: 10px;
 
-    color:#f9a8d4;
+    color: #f9a8d4;
 
-    font-size:13px;
+    font-size: 13px;
 }
 
 
@@ -523,7 +536,7 @@ input[type="range"]{
    100%
 ========================= */
 
-.hundred{
+.hundred {
 
     font-size:
         clamp(
@@ -532,9 +545,9 @@ input[type="range"]{
             130px
         );
 
-    font-weight:1000;
+    font-weight: 1000;
 
-    letter-spacing:-8px;
+    letter-spacing: -8px;
 
     background:
         linear-gradient(
@@ -544,9 +557,9 @@ input[type="range"]{
             #ec4899
         );
 
-    -webkit-background-clip:text;
+    -webkit-background-clip: text;
 
-    color:transparent;
+    color: transparent;
 
     animation:
         pop
@@ -554,19 +567,17 @@ input[type="range"]{
         ease;
 }
 
-@keyframes pop{
+@keyframes pop {
 
-    from{
-
-        opacity:0;
+    from {
+        opacity: 0;
 
         transform:
             scale(.4);
     }
 
-    to{
-
-        opacity:1;
+    to {
+        opacity: 1;
 
         transform:
             scale(1);
@@ -578,32 +589,34 @@ input[type="range"]{
    GIFT
 ========================= */
 
-.gift-area{
+.gift-area {
 
-    width:210px;
+    width: 210px;
 
-    height:200px;
+    height: 200px;
 
-    display:flex;
+    display: flex;
 
-    justify-content:center;
+    justify-content: center;
 
-    align-items:center;
+    align-items: center;
 
-    margin:20px;
+    margin:
+        20px 0 10px;
 }
 
-.gift{
+.gift {
 
-    position:relative;
+    position: relative;
 
-    width:140px;
+    width: 140px;
 
-    height:110px;
+    height: 110px;
 
-    cursor:pointer;
+    cursor: pointer;
 
-    transition:.5s;
+    transition:
+        transform .5s ease;
 
     filter:
         drop-shadow(
@@ -612,24 +625,24 @@ input[type="range"]{
         );
 }
 
-.gift:hover{
+.gift:hover {
 
     transform:
         translateY(-8px)
         scale(1.07);
 }
 
-.gift-body{
+.gift-body {
 
-    position:absolute;
+    position: absolute;
 
-    bottom:0;
+    bottom: 0;
 
-    width:140px;
+    width: 140px;
 
-    height:85px;
+    height: 85px;
 
-    border-radius:10px;
+    border-radius: 10px;
 
     background:
         linear-gradient(
@@ -639,19 +652,19 @@ input[type="range"]{
         );
 }
 
-.gift-lid{
+.gift-lid {
 
-    position:absolute;
+    position: absolute;
 
-    top:12px;
+    top: 12px;
 
-    left:-8px;
+    left: -8px;
 
-    width:156px;
+    width: 156px;
 
-    height:36px;
+    height: 36px;
 
-    border-radius:9px;
+    border-radius: 9px;
 
     background:
         linear-gradient(
@@ -660,77 +673,77 @@ input[type="range"]{
             #9d174d
         );
 
-    z-index:2;
+    z-index: 2;
 }
 
-.ribbon-v{
+.ribbon-v {
 
-    position:absolute;
+    position: absolute;
 
-    left:55px;
+    left: 55px;
 
-    bottom:0;
+    bottom: 0;
 
-    width:30px;
+    width: 30px;
 
-    height:110px;
+    height: 110px;
 
-    background:#fde7f3;
+    background: #fde7f3;
 
-    z-index:3;
+    z-index: 3;
 }
 
-.ribbon-h{
+.ribbon-h {
 
-    position:absolute;
+    position: absolute;
 
-    left:-8px;
+    left: -8px;
 
-    top:20px;
+    top: 20px;
 
-    width:156px;
+    width: 156px;
 
-    height:15px;
+    height: 15px;
 
-    background:#fde7f3;
+    background: #fde7f3;
 
-    z-index:4;
+    z-index: 4;
 }
 
-.bow{
+.bow {
 
-    position:absolute;
+    position: absolute;
 
-    top:-14px;
+    top: -14px;
 
-    left:44px;
+    left: 44px;
 
-    width:52px;
+    width: 52px;
 
-    height:25px;
+    height: 25px;
 
-    z-index:5;
+    z-index: 5;
 }
 
 .bow::before,
-.bow::after{
+.bow::after {
 
-    content:"";
+    content: "";
 
-    position:absolute;
+    position: absolute;
 
-    width:32px;
+    width: 32px;
 
-    height:24px;
+    height: 24px;
 
     border:
         8px solid
         #fde7f3;
 }
 
-.bow::before{
+.bow::before {
 
-    left:-13px;
+    left: -13px;
 
     transform:
         rotate(25deg);
@@ -739,9 +752,9 @@ input[type="range"]{
         70% 30% 60% 40%;
 }
 
-.bow::after{
+.bow::after {
 
-    right:-13px;
+    right: -13px;
 
     transform:
         rotate(-25deg);
@@ -755,89 +768,100 @@ input[type="range"]{
    LETTER
 ========================= */
 
-.letter{
+.letter {
 
-    display:none;
+    width: 100%;
 
-    max-width:480px;
+    max-width: 500px;
 
-    padding:28px 23px;
+    padding:
+        30px 24px;
 
-    border-radius:26px;
+    margin-top: 25px;
+
+    border-radius: 28px;
 
     background:
-        rgba(255,255,255,.07);
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.10),
+            rgba(255,255,255,.055)
+        );
 
     border:
         1px solid
-        rgba(255,255,255,.14);
+        rgba(255,255,255,.15);
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,.2);
 
     animation:
         letterIn
         .8s
         ease;
+
+    scroll-margin-top: 30px;
 }
 
-.letter.show{
+.letter-icon {
 
-    display:block;
+    font-size: 58px;
+
+    margin-bottom: 5px;
 }
 
-.letter-icon{
-
-    font-size:58px;
-}
-
-.letter h2{
+.letter h2 {
 
     font-family:
         Georgia,
         serif;
 
-    font-size:36px;
+    font-size: 36px;
 
-    font-weight:500;
+    font-weight: 500;
 
-    margin:8px 0 15px;
+    margin:
+        8px 0 18px;
 }
 
-.letter p{
+.letter p {
 
     color:
-        rgba(255,255,255,.7);
+        rgba(255,255,255,.72);
 
-    line-height:1.85;
+    line-height: 1.9;
 
-    font-size:15px;
+    font-size: 15px;
 
-    margin:10px 0;
+    margin: 12px 0;
 }
 
-.signature{
+.signature {
 
-    margin-top:20px;
+    margin-top: 24px;
 
-    color:#f9a8d4;
+    color: #f9a8d4;
 
-    font-weight:800;
+    font-weight: 800;
 
-    line-height:1.7;
+    line-height: 1.8;
 }
 
-@keyframes letterIn{
+@keyframes letterIn {
 
-    from{
+    from {
 
-        opacity:0;
+        opacity: 0;
 
         transform:
-            translateY(20px)
-            scale(.92);
+            translateY(25px)
+            scale(.94);
     }
 
-    to{
+    to {
 
-        opacity:1;
+        opacity: 1;
 
         transform:
             none;
@@ -845,28 +869,99 @@ input[type="range"]{
 }
 
 
-@media(max-width:500px){
+/* =========================
+   MUSIC ERROR
+========================= */
 
-    .container{
+.music-status {
 
-        width:95%;
+    position: absolute;
 
-        border-radius:28px;
+    top: 60px;
+
+    right: 18px;
+
+    z-index: 40;
+
+    display: none;
+
+    padding:
+        8px 12px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(255,80,120,.15);
+
+    border:
+        1px solid
+        rgba(255,150,180,.2);
+
+    color:
+        rgba(255,255,255,.75);
+
+    font-size: 11px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:500px) {
+
+    body {
+        padding:
+            10px 0 30px;
     }
 
-    .page{
+    .container {
 
-        min-height:680px;
+        width: 95%;
+
+        border-radius: 28px;
+    }
+
+    .page {
+
+        min-height: 650px;
 
         padding:
-            45px 18px;
+            65px 18px 45px;
     }
 
-    h1{
+    #page4 {
 
-        font-size:42px;
+        min-height: auto;
 
-        letter-spacing:-2px;
+        padding:
+            90px 18px 70px;
+    }
+
+    h1 {
+
+        font-size: 42px;
+
+        letter-spacing: -2px;
+    }
+
+    .percentage {
+
+        font-size: 70px;
+    }
+
+    .letter {
+
+        padding:
+            27px 20px;
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+
+    * {
+        animation: none !important;
+        transition: none !important;
     }
 }
 
@@ -877,8 +972,9 @@ input[type="range"]{
 <body>
 
 
-<div class="stars"></div>
+<!-- BACKGROUND -->
 
+<div class="stars"></div>
 
 <div class="hearts">
 
@@ -890,22 +986,33 @@ input[type="range"]{
 </div>
 
 
+<!-- MAIN -->
+
 <div class="container">
 
 
-<!-- MUSIC -->
+<!-- MUSIC BUTTON -->
 
 <button
     class="music-button"
     id="musicButton"
+    type="button"
 >
     ♪ Music OFF
 </button>
 
 
-<!-- =========================
+<div
+    class="music-status"
+    id="musicStatus"
+>
+    Tap Music to play 🎵
+</div>
+
+
+<!-- =================================
      PAGE 1
-========================= -->
+================================= -->
 
 <section
     class="page active"
@@ -916,13 +1023,16 @@ input[type="range"]{
         A little surprise
     </div>
 
+
     <div class="big-heart">
         ❤️
     </div>
 
+
     <h1>
         For Anam
     </h1>
+
 
     <p class="subtitle">
 
@@ -939,7 +1049,8 @@ input[type="range"]{
 
     <button
         class="primary"
-        id="begin"
+        id="beginButton"
+        type="button"
     >
         Begin ✨
     </button>
@@ -948,9 +1059,9 @@ input[type="range"]{
 
 
 
-<!-- =========================
+<!-- =================================
      PAGE 2
-========================= -->
+================================= -->
 
 <section
     class="page"
@@ -961,6 +1072,7 @@ input[type="range"]{
         Love Measurement System
     </div>
 
+
     <h1>
         How much<br>
         do you love me?
@@ -968,6 +1080,7 @@ input[type="range"]{
 
 
     <div class="meter">
+
 
         <div
             class="emoji"
@@ -997,7 +1110,7 @@ input[type="range"]{
 
             <div
                 class="progress-bar"
-                id="progress"
+                id="progressBar"
             ></div>
 
         </div>
@@ -1005,10 +1118,11 @@ input[type="range"]{
 
         <input
             type="range"
-            id="slider"
+            id="loveSlider"
             min="0"
             max="100"
             value="0"
+            aria-label="Love percentage"
         >
 
 
@@ -1031,11 +1145,13 @@ input[type="range"]{
 
         <button
             class="primary"
-            id="lock"
+            id="lockButton"
+            type="button"
             disabled
         >
             Lock my answer 🔒
         </button>
+
 
     </div>
 
@@ -1043,9 +1159,9 @@ input[type="range"]{
 
 
 
-<!-- =========================
+<!-- =================================
      PAGE 3
-========================= -->
+================================= -->
 
 <section
     class="page"
@@ -1056,6 +1172,7 @@ input[type="range"]{
         style="
         font-size:30px;
         letter-spacing:8px;
+        margin-bottom:10px;
         "
     >
         ✨ 💗 ✨
@@ -1091,6 +1208,7 @@ input[type="range"]{
     <button
         class="primary"
         id="giftButton"
+        type="button"
     >
         There is something for you 🎁
     </button>
@@ -1099,9 +1217,9 @@ input[type="range"]{
 
 
 
-<!-- =========================
+<!-- =================================
      PAGE 4
-========================= -->
+================================= -->
 
 <section
     class="page"
@@ -1124,6 +1242,9 @@ input[type="range"]{
         <div
             class="gift"
             id="gift"
+            role="button"
+            tabindex="0"
+            aria-label="Open the gift"
         >
 
             <div class="bow"></div>
@@ -1151,9 +1272,12 @@ input[type="range"]{
     </div>
 
 
+    <!-- LETTER -->
+
     <div
         class="letter"
         id="letter"
+        hidden
     >
 
         <div class="letter-icon">
@@ -1167,15 +1291,12 @@ input[type="range"]{
 
 
         <p>
-
             I made this little world
             just for you.
-
         </p>
 
 
         <p>
-
             The scale was supposed
             to measure something simple...
 
@@ -1186,19 +1307,16 @@ input[type="range"]{
                 There isn't really
                 a number big enough.
             </strong>
-
         </p>
 
 
         <p>
-
             I hope this little surprise
             made you smile.
 
             Because honestly,
             seeing you smile is already
             something special to me. ❤️
-
         </p>
 
 
@@ -1214,27 +1332,34 @@ input[type="range"]{
 
     </div>
 
+
+    <div
+        id="bottomSpace"
+        style="height:40px"
+    ></div>
+
 </section>
 
 
 </div>
 
 
-
-<!-- =========================
+<!-- =================================
      AUDIO
-========================= -->
+================================= -->
 
 <audio
     id="song"
+    preload="auto"
     loop
-    autoplay
 >
 
     <source
-        src="_Safari_Rmx_Ringtone_(by Fringster.com).mp3"
+        src="safari.mp3"
         type="audio/mpeg"
     >
+
+    Your browser does not support audio.
 
 </audio>
 
@@ -1243,9 +1368,9 @@ input[type="range"]{
 <script>
 
 
-/* =========================
+/* =================================
    PAGE SYSTEM
-========================= */
+================================= */
 
 const pages = [
     document.getElementById("page1"),
@@ -1255,23 +1380,34 @@ const pages = [
 ];
 
 
-function showPage(number){
+function showPage(number) {
 
-    pages.forEach(page => {
+    pages.forEach((page, index) => {
 
-        page.classList.remove("active");
+        page.classList.toggle(
+            "active",
+            index === number
+        );
 
     });
 
-    pages[number].classList.add("active");
+    /*
+       Always start the new page
+       from the top.
+    */
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 
 }
 
 
 
-/* =========================
-   MUSIC
-========================= */
+/* =================================
+   MUSIC SYSTEM
+================================= */
 
 const song =
     document.getElementById("song");
@@ -1279,62 +1415,100 @@ const song =
 const musicButton =
     document.getElementById("musicButton");
 
+const musicStatus =
+    document.getElementById("musicStatus");
+
 
 let musicPlaying = false;
 
 
-function updateMusicButton(label){
+/*
+   Try to start the song.
+*/
 
-    musicButton.textContent =
-        label;
+async function startMusic() {
+
+    try {
+
+        song.volume = 0.35;
+
+        /*
+           Reload the audio source if necessary.
+        */
+
+        song.load();
+
+        await song.play();
+
+        musicPlaying = true;
+
+        musicButton.textContent =
+            "♪ Music ON";
+
+        musicStatus.style.display =
+            "none";
+
+        return true;
+
+    }
+
+    catch(error) {
+
+        console.log(
+            "Audio playback failed:",
+            error
+        );
+
+        musicPlaying = false;
+
+        musicButton.textContent =
+            "♪ Play Music";
+
+        musicStatus.textContent =
+            "Tap Music to play 🎵";
+
+        musicStatus.style.display =
+            "block";
+
+        return false;
+    }
 
 }
 
 
-function startMusic(){
+/*
+   Stop music.
+*/
 
-    song.volume = 0.35;
-
-    song.play()
-        .then(() => {
-
-            musicPlaying = true;
-
-            updateMusicButton("♪ Music ON");
-
-        })
-        .catch(error => {
-
-            updateMusicButton("♪ Play Music");
-
-        });
-
-}
-
-
-function stopMusic(){
+function stopMusic() {
 
     song.pause();
 
     musicPlaying = false;
 
-    updateMusicButton("♪ Music OFF");
+    musicButton.textContent =
+        "♪ Music OFF";
 
 }
 
 
+/*
+   Music button.
+*/
+
 musicButton.addEventListener(
     "click",
-    () => {
+    async () => {
 
-        if(musicPlaying){
+        if (musicPlaying) {
 
             stopMusic();
 
         }
-        else{
 
-            startMusic();
+        else {
+
+            await startMusic();
 
         }
 
@@ -1342,21 +1516,24 @@ musicButton.addEventListener(
 );
 
 
-startMusic();
 
-
-
-/* =========================
+/* =================================
    BEGIN
-========================= */
+================================= */
 
 document
-.getElementById("begin")
+.getElementById("beginButton")
 .addEventListener(
     "click",
-    () => {
+    async () => {
 
-        startMusic();
+        /*
+           IMPORTANT:
+           Audio playback happens directly
+           inside the user's click event.
+        */
+
+        await startMusic();
 
         showPage(1);
 
@@ -1365,18 +1542,18 @@ document
 
 
 
-/* =========================
-   LOVE SCALE
-========================= */
+/* =================================
+   LOVE METER
+================================= */
 
 const slider =
-    document.getElementById("slider");
+    document.getElementById("loveSlider");
 
 const percentage =
     document.getElementById("percentage");
 
-const progress =
-    document.getElementById("progress");
+const progressBar =
+    document.getElementById("progressBar");
 
 const emoji =
     document.getElementById("emoji");
@@ -1387,9 +1564,8 @@ const message =
 const warning =
     document.getElementById("warning");
 
-const lock =
-    document.getElementById("lock");
-
+const lockButton =
+    document.getElementById("lockButton");
 
 
 slider.addEventListener(
@@ -1404,15 +1580,18 @@ slider.addEventListener(
             value + "%";
 
 
-        progress.style.width =
+        progressBar.style.width =
             value + "%";
 
 
-        lock.disabled =
+        lockButton.disabled =
             value === 0;
 
 
-        if(value === 0){
+        warning.textContent = "";
+
+
+        if (value === 0) {
 
             emoji.textContent =
                 "🤔";
@@ -1422,7 +1601,7 @@ slider.addEventListener(
 
         }
 
-        else if(value < 20){
+        else if (value < 20) {
 
             emoji.textContent =
                 "🙂";
@@ -1432,7 +1611,7 @@ slider.addEventListener(
 
         }
 
-        else if(value < 40){
+        else if (value < 40) {
 
             emoji.textContent =
                 "😊";
@@ -1442,7 +1621,7 @@ slider.addEventListener(
 
         }
 
-        else if(value < 60){
+        else if (value < 60) {
 
             emoji.textContent =
                 "🥰";
@@ -1452,7 +1631,7 @@ slider.addEventListener(
 
         }
 
-        else if(value < 80){
+        else if (value < 80) {
 
             emoji.textContent =
                 "💕";
@@ -1462,7 +1641,7 @@ slider.addEventListener(
 
         }
 
-        else if(value < 95){
+        else if (value < 95) {
 
             emoji.textContent =
                 "💖";
@@ -1472,29 +1651,26 @@ slider.addEventListener(
 
         }
 
-        else if(value < 100){
+        else if (value < 100) {
 
             emoji.textContent =
                 "😳";
 
             message.textContent =
-                "ANAM... are you sure?!";
+                "Anam... are you sure?!";
 
             warning.textContent =
                 "The system is becoming unstable...";
 
         }
 
-        else{
+        else {
 
             emoji.textContent =
                 "💘";
 
             message.textContent =
                 "MAXIMUM LOVE DETECTED.";
-
-            warning.textContent =
-                "";
 
         }
 
@@ -1503,32 +1679,42 @@ slider.addEventListener(
 
 
 
-/* =========================
-   LOCK
-========================= */
+/* =================================
+   LOCK ANSWER
+================================= */
 
-lock.addEventListener(
+lockButton.addEventListener(
     "click",
-    () => {
+    async () => {
 
         const value =
             Number(slider.value);
 
 
-        if(value === 100){
+        if (value === 100) {
+
+            /*
+               Keep music playing.
+            */
+
+            if (!musicPlaying) {
+
+                await startMusic();
+
+            }
+
+            /*
+               Slight volume increase.
+            */
+
+            song.volume = 0.45;
+
 
             showPage(2);
 
-            /*
-              Slightly raise volume
-              for the big reveal.
-            */
-
-            song.volume = 0.5;
-
         }
 
-        else{
+        else {
 
             warning.textContent =
                 "Hmm... the system requires 100%. 😏";
@@ -1540,9 +1726,9 @@ lock.addEventListener(
 
 
 
-/* =========================
+/* =================================
    GIFT PAGE
-========================= */
+================================= */
 
 document
 .getElementById("giftButton")
@@ -1557,9 +1743,9 @@ document
 
 
 
-/* =========================
+/* =================================
    OPEN GIFT
-========================= */
+================================= */
 
 const gift =
     document.getElementById("gift");
@@ -1571,25 +1757,148 @@ const tapText =
     document.getElementById("tapText");
 
 
+function openGift() {
+
+    /*
+       Prevent opening twice.
+    */
+
+    if (!letter.hidden) {
+        return;
+    }
+
+
+    /*
+       Gift animation.
+    */
+
+    gift.style.transform =
+        "translateY(-20px) scale(.8) rotate(-6deg)";
+
+
+    tapText.textContent =
+        "Gift opened ❤️";
+
+
+    /*
+       Reveal letter.
+    */
+
+    setTimeout(
+        () => {
+
+            letter.hidden = false;
+
+
+            /*
+               Wait for browser to render
+               the newly visible letter.
+            */
+
+            requestAnimationFrame(
+                () => {
+
+                    /*
+                       THIS FIXES THE
+                       SCROLL PROBLEM.
+                    */
+
+                    letter.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
+                    });
+
+                }
+            );
+
+        },
+        400
+    );
+
+}
+
+
+/*
+   Mouse / touch.
+*/
+
 gift.addEventListener(
     "click",
+    openGift
+);
+
+
+/*
+   Keyboard accessibility.
+*/
+
+gift.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key === "Enter" ||
+            event.key === " "
+        ) {
+
+            event.preventDefault();
+
+            openGift();
+
+        }
+
+    }
+);
+
+
+
+/* =================================
+   AUDIO ERROR DETECTION
+================================= */
+
+song.addEventListener(
+    "error",
     () => {
 
-        gift.style.transform =
-            "translateY(-20px) scale(.8) rotate(-6deg)";
+        musicButton.textContent =
+            "♪ Music unavailable";
 
-        tapText.textContent =
-            "Gift opened ❤️";
+        musicStatus.textContent =
+            "The song file could not be loaded.";
+
+        musicStatus.style.display =
+            "block";
+
+    }
+);
 
 
-        setTimeout(
-            () => {
+/*
+   If audio naturally starts,
+   keep button synchronized.
+*/
 
-                letter.classList.add("show");
+song.addEventListener(
+    "play",
+    () => {
 
-            },
-            400
-        );
+        musicPlaying = true;
+
+        musicButton.textContent =
+            "♪ Music ON";
+
+    }
+);
+
+
+song.addEventListener(
+    "pause",
+    () => {
+
+        musicPlaying = false;
+
+        musicButton.textContent =
+            "♪ Play Music";
 
     }
 );
