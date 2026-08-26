@@ -6,46 +6,23 @@
 <title>For Anam ❤️</title>
 
 <style>
-
-/* =========================================================
-   RESET
-========================================================= */
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-html {
-    scroll-behavior: smooth;
+html{
+    scroll-behavior:smooth;
 }
 
-body {
-    min-height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-
-    padding: 20px 0 50px;
-
-    color: white;
-
-    font-family:
-        "Segoe UI",
-        Arial,
-        sans-serif;
-
-    background:
-        radial-gradient(
-            circle at 50% 10%,
-            #5d2257 0%,
-            #281330 38%,
-            #09060e 80%
-        );
+body{
+    min-height:100vh;
+    overflow-x:hidden;
+    overflow-y:auto;
+    background:#030205;
+    color:white;
+    font-family:"Segoe UI",Arial,sans-serif;
 }
 
 
@@ -53,386 +30,298 @@ body {
    CINEMATIC INTRO
 ========================================================= */
 
-#intro {
-
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 99999;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    overflow: hidden;
-
+#intro{
+    position:fixed;
+    inset:0;
+    z-index:99999;
+    overflow:hidden;
     background:
         radial-gradient(
-            circle at center,
-            #351737 0%,
-            #120914 45%,
-            #020104 100%
+            circle at 50% 50%,
+            #30132d 0%,
+            #100812 34%,
+            #030205 72%,
+            #000 100%
         );
-
     transition:
-        opacity 1.5s ease,
-        visibility 1.5s ease;
+        opacity 1.8s cubic-bezier(.7,0,.2,1),
+        visibility 1.8s;
+}
+
+#intro.hide{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
 }
 
 
-/* Intro stars */
+/* Universe */
 
-.intro-stars {
+#universe{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+}
 
-    position: absolute;
 
-    inset: 0;
+/* Massive center glow */
 
+.energy-core{
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:20px;
+    height:20px;
+    transform:translate(-50%,-50%);
+    border-radius:50%;
+    background:white;
+    box-shadow:
+        0 0 10px white,
+        0 0 35px #f472b6,
+        0 0 90px #ec4899,
+        0 0 180px rgba(236,72,153,.7);
+    opacity:0;
+    animation:
+        coreAppear 1.5s ease 1.5s forwards,
+        corePulse 1.5s ease-in-out 3s infinite;
+}
+
+@keyframes coreAppear{
+    0%{
+        opacity:0;
+        transform:translate(-50%,-50%) scale(.05);
+    }
+    100%{
+        opacity:1;
+        transform:translate(-50%,-50%) scale(1);
+    }
+}
+
+@keyframes corePulse{
+    0%,100%{
+        transform:translate(-50%,-50%) scale(1);
+    }
+    50%{
+        transform:translate(-50%,-50%) scale(1.8);
+    }
+}
+
+
+/* Energy rings */
+
+.energy-ring{
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:40px;
+    height:40px;
+    border:1px solid rgba(249,168,212,.5);
+    border-radius:50%;
+    transform:translate(-50%,-50%);
+    opacity:0;
+}
+
+.ring1{
+    animation:ringExpand 3s ease-out 1.8s infinite;
+}
+
+.ring2{
+    animation:ringExpand 3s ease-out 2.4s infinite;
+}
+
+.ring3{
+    animation:ringExpand 3s ease-out 3s infinite;
+}
+
+@keyframes ringExpand{
+    0%{
+        width:30px;
+        height:30px;
+        opacity:.8;
+    }
+
+    100%{
+        width:900px;
+        height:900px;
+        opacity:0;
+    }
+}
+
+
+/* Star field */
+
+.star-field{
+    position:absolute;
+    inset:-30%;
     background-image:
-
-        radial-gradient(
-            circle,
-            rgba(255,255,255,.9) 1px,
-            transparent 1.5px
-        ),
-
-        radial-gradient(
-            circle,
-            rgba(249,168,212,.7) 1px,
-            transparent 1.5px
-        );
-
+        radial-gradient(circle,white 1px,transparent 1.5px),
+        radial-gradient(circle,#f9a8d4 1px,transparent 1.5px),
+        radial-gradient(circle,#fff 1px,transparent 1.5px);
     background-size:
-        70px 80px,
-        130px 150px;
-
+        90px 100px,
+        150px 160px,
+        230px 240px;
     background-position:
-        0 0,
-        30px 40px;
-
-    opacity: 0;
-
+        10px 20px,
+        40px 80px,
+        90px 30px;
+    opacity:.35;
     animation:
-        starsAppear
-        3s
-        ease
-        .2s
-        forwards;
+        starDrift 18s linear infinite,
+        starZoom 8s ease-in-out infinite;
 }
 
-@keyframes starsAppear {
-
-    from {
-        opacity: 0;
-        transform: scale(1.1);
+@keyframes starDrift{
+    from{
+        transform:rotate(0deg);
     }
-
-    to {
-        opacity: .5;
-        transform: scale(1);
+    to{
+        transform:rotate(360deg);
     }
 }
 
-
-/* Intro glow */
-
-.intro-glow {
-
-    position: absolute;
-
-    width: 280px;
-    height: 280px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(244,114,182,.30),
-            rgba(236,72,153,.10),
-            transparent 70%
-        );
-
-    filter: blur(20px);
-
-    opacity: 0;
-
-    animation:
-        introGlow
-        5s
-        ease
-        forwards;
-}
-
-@keyframes introGlow {
-
-    0% {
-        opacity: 0;
-        transform: scale(.2);
+@keyframes starZoom{
+    0%,100%{
+        scale:1;
     }
-
-    50% {
-        opacity: .9;
-        transform: scale(1.3);
-    }
-
-    100% {
-        opacity: .45;
-        transform: scale(1);
+    50%{
+        scale:1.15;
     }
 }
 
 
-/* Intro floating particles */
+/* Particle canvas */
 
-.intro-particles span {
-
-    position: absolute;
-
-    color: #f9a8d4;
-
-    opacity: 0;
-
-    font-size: 18px;
-
-    animation:
-        introParticle
-        5s
-        linear
-        infinite;
-}
-
-.intro-particles span:nth-child(1) {
-    left: 10%;
-    top: 80%;
-    animation-delay: .5s;
-}
-
-.intro-particles span:nth-child(2) {
-    left: 22%;
-    top: 65%;
-    animation-delay: 1.2s;
-}
-
-.intro-particles span:nth-child(3) {
-    left: 78%;
-    top: 75%;
-    animation-delay: .8s;
-}
-
-.intro-particles span:nth-child(4) {
-    left: 88%;
-    top: 45%;
-    animation-delay: 1.8s;
-}
-
-.intro-particles span:nth-child(5) {
-    left: 35%;
-    top: 85%;
-    animation-delay: 2.2s;
-}
-
-.intro-particles span:nth-child(6) {
-    left: 67%;
-    top: 90%;
-    animation-delay: 2.8s;
-}
-
-.intro-particles span:nth-child(7) {
-    left: 50%;
-    top: 70%;
-    animation-delay: 1.5s;
-}
-
-.intro-particles span:nth-child(8) {
-    left: 15%;
-    top: 35%;
-    animation-delay: 3s;
-}
-
-@keyframes introParticle {
-
-    0% {
-        opacity: 0;
-        transform:
-            translateY(50px)
-            scale(.5);
-    }
-
-    25% {
-        opacity: .8;
-    }
-
-    100% {
-        opacity: 0;
-        transform:
-            translateY(-300px)
-            scale(1.4);
-    }
-}
-
-
-/* Intro content */
-
-.intro-content {
-
-    position: relative;
-
-    z-index: 10;
-
-    width: 100%;
-
-    height: 220px;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    text-align: center;
+#particleCanvas{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
 }
 
 
 /* Intro text */
 
-.intro-line {
+.intro-copy{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    width:100%;
+    text-align:center;
+    pointer-events:none;
+    z-index:5;
+}
 
-    position: absolute;
+.intro-message{
+    position:absolute;
+    width:100%;
+    left:50%;
+    transform:translateX(-50%);
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:clamp(22px,5vw,36px);
+    letter-spacing:.03em;
+    color:rgba(255,255,255,.9);
+    opacity:0;
+}
 
-    width: 90%;
-
-    max-width: 500px;
-
-    color:
-        rgba(255,255,255,.72);
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:
-        clamp(21px,5vw,32px);
-
-    line-height: 1.4;
-
-    opacity: 0;
-
+.message1{
     animation:
-        introText
-        2.3s
-        ease
-        forwards;
+        cinematicMessage 2.6s ease .2s forwards;
 }
 
-#introLine1 {
-    animation-delay: .8s;
+.message2{
+    animation:
+        cinematicMessage 2.6s ease 2.4s forwards;
 }
 
-#introLine2 {
-    animation-delay: 2.7s;
-}
+@keyframes cinematicMessage{
 
-@keyframes introText {
-
-    0% {
-        opacity: 0;
-        transform:
-            translateY(20px);
+    0%{
+        opacity:0;
+        transform:translate(-50%,30px);
+        filter:blur(12px);
     }
 
-    20% {
-        opacity: 1;
+    20%{
+        opacity:1;
+        filter:blur(0);
     }
 
-    70% {
-        opacity: 1;
+    70%{
+        opacity:1;
+        filter:blur(0);
     }
 
-    100% {
-        opacity: 0;
-        transform:
-            translateY(-20px);
+    100%{
+        opacity:0;
+        transform:translate(-50%,-30px);
+        filter:blur(12px);
     }
 }
 
 
-/* Intro heart */
+/* Heart */
 
-.intro-heart {
-
-    position: absolute;
-
-    font-size:
-        clamp(100px,25vw,180px);
-
-    line-height: 1;
-
-    color: transparent;
-
-    -webkit-text-stroke:
-        2px #f9a8d4;
-
+.cinematic-heart{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%) scale(.1);
+    font-size:clamp(100px,25vw,210px);
+    line-height:1;
+    opacity:0;
     filter:
-        drop-shadow(
-            0 0 25px
-            rgba(244,114,182,.6)
-        );
-
-    opacity: 0;
-
-    transform: scale(.25);
-
+        drop-shadow(0 0 20px #fff)
+        drop-shadow(0 0 60px #f472b6)
+        drop-shadow(0 0 120px #ec4899);
     animation:
-        introHeart
-        2.6s
-        cubic-bezier(.2,.8,.2,1)
-        4.5s
-        forwards;
+        heartArrival 2.8s cubic-bezier(.2,.9,.2,1) 4.1s forwards;
 }
 
-@keyframes introHeart {
+@keyframes heartArrival{
 
-    0% {
-        opacity: 0;
-        transform: scale(.25);
+    0%{
+        opacity:0;
+        transform:translate(-50%,-50%) scale(.05);
     }
 
-    20% {
-        opacity: 1;
-        transform: scale(1.15);
+    25%{
+        opacity:1;
+        transform:translate(-50%,-50%) scale(1.25);
     }
 
-    35% {
-        transform: scale(.95);
+    40%{
+        transform:translate(-50%,-50%) scale(.92);
     }
 
-    45% {
-        transform: scale(1.06);
+    52%{
+        transform:translate(-50%,-50%) scale(1.08);
     }
 
-    70% {
-        opacity: 1;
+    70%{
+        opacity:1;
     }
 
-    100% {
-        opacity: 0;
-        transform: scale(1.55);
+    100%{
+        opacity:0;
+        transform:translate(-50%,-50%) scale(2.5);
+        filter:
+            drop-shadow(0 0 80px #fff)
+            drop-shadow(0 0 200px #ec4899);
     }
 }
 
 
-/* Intro final name */
+/* Anam */
 
-.intro-final {
-
-    position: absolute;
-
-    color: white;
+.anam-title{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%) scale(.65);
+    white-space:nowrap;
 
     font-family:
         Georgia,
@@ -440,147 +329,155 @@ body {
         serif;
 
     font-size:
-        clamp(35px,9vw,70px);
+        clamp(42px,12vw,100px);
 
-    letter-spacing:
-        .18em;
+    font-weight:500;
 
-    font-weight: 500;
+    letter-spacing:.22em;
 
-    white-space: nowrap;
+    padding-left:.22em;
+
+    color:#fff;
 
     text-shadow:
-        0 0 35px
-        rgba(249,168,212,.6);
+        0 0 15px white,
+        0 0 35px #f9a8d4,
+        0 0 80px #ec4899,
+        0 0 150px #ec4899;
 
-    opacity: 0;
-
-    transform:
-        scale(.8)
-        translateY(15px);
+    opacity:0;
 
     animation:
-        introFinal
-        2.2s
-        ease
-        6s
+        anamReveal
+        2.5s
+        cubic-bezier(.2,.8,.2,1)
+        6.7s
         forwards;
 }
 
-@keyframes introFinal {
+@keyframes anamReveal{
 
-    0% {
-        opacity: 0;
-        transform:
-            scale(.8)
-            translateY(15px);
+    0%{
+        opacity:0;
+        transform:translate(-50%,-50%) scale(.5);
+        letter-spacing:.8em;
+        filter:blur(20px);
     }
 
-    25% {
-        opacity: 1;
-        transform:
-            scale(1)
-            translateY(0);
+    25%{
+        opacity:1;
+        transform:translate(-50%,-50%) scale(1.08);
+        letter-spacing:.18em;
+        filter:blur(0);
     }
 
-    75% {
-        opacity: 1;
+    45%{
+        transform:translate(-50%,-50%) scale(.98);
     }
 
-    100% {
-        opacity: 0;
-        transform:
-            scale(1.08)
-            translateY(-10px);
+    70%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:0;
+        transform:translate(-50%,-50%) scale(1.15);
+        filter:blur(8px);
     }
 }
 
 
-/* Intro subtitle */
+/* Signature */
 
-.intro-sub {
+.intro-signature{
+    position:absolute;
+    left:50%;
+    top:calc(50% + 80px);
+    transform:translateX(-50%);
+    white-space:nowrap;
 
-    position: absolute;
+    color:rgba(255,255,255,.65);
 
-    top: 115px;
+    font-size:12px;
 
-    color:
-        rgba(255,255,255,.45);
+    letter-spacing:.3em;
 
-    font-size: 10px;
+    text-transform:uppercase;
 
-    letter-spacing:
-        .3em;
-
-    text-transform: uppercase;
-
-    opacity: 0;
+    opacity:0;
 
     animation:
-        introSub
-        1.5s
+        signatureReveal
+        2s
         ease
-        6.5s
+        7.1s
         forwards;
 }
 
-@keyframes introSub {
+@keyframes signatureReveal{
 
-    from {
-        opacity: 0;
-        transform: translateY(10px);
+    0%{
+        opacity:0;
+        transform:translate(-50%,15px);
     }
 
-    to {
-        opacity: .75;
-        transform: translateY(0);
+    30%{
+        opacity:1;
+    }
+
+    75%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:0;
+        transform:translate(-50%,-10px);
     }
 }
 
 
-/* Hide intro */
+/* Skip */
 
-#intro.hide {
+.intro-skip{
+    position:absolute;
+    right:20px;
+    bottom:20px;
 
-    opacity: 0;
+    z-index:20;
 
-    visibility: hidden;
+    padding:8px 13px;
 
-    pointer-events: none;
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:20px;
+
+    background:rgba(255,255,255,.05);
+
+    color:rgba(255,255,255,.5);
+
+    font-size:11px;
+
+    cursor:pointer;
 }
 
 
 /* =========================================================
-   BACKGROUND STARS
+   MAIN BACKGROUND
 ========================================================= */
 
-.stars {
-
-    position: fixed;
-
-    inset: 0;
-
-    pointer-events: none;
+.main-stars{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
 
     background-image:
-
-        radial-gradient(
-            circle,
-            rgba(255,255,255,.8) 1px,
-            transparent 1.5px
-        ),
-
-        radial-gradient(
-            circle,
-            rgba(255,170,220,.5) 1px,
-            transparent 1.5px
-        );
+        radial-gradient(circle,rgba(255,255,255,.8) 1px,transparent 1.5px),
+        radial-gradient(circle,rgba(255,170,220,.5) 1px,transparent 1.5px);
 
     background-size:
         75px 85px,
         130px 145px;
 
-    opacity: .35;
+    opacity:.3;
 }
 
 
@@ -588,17 +485,15 @@ body {
    FLOATING HEARTS
 ========================================================= */
 
-.hearts span {
+.hearts span{
+    position:fixed;
+    bottom:-50px;
 
-    position: fixed;
+    font-size:20px;
 
-    bottom: -50px;
+    opacity:0;
 
-    font-size: 20px;
-
-    opacity: 0;
-
-    pointer-events: none;
+    pointer-events:none;
 
     animation:
         floatingHeart
@@ -607,49 +502,29 @@ body {
         infinite;
 }
 
-.hearts span:nth-child(1) {
-    left: 8%;
-}
+.hearts span:nth-child(1){left:8%}
+.hearts span:nth-child(2){left:25%;animation-delay:2s}
+.hearts span:nth-child(3){left:70%;animation-delay:4s}
+.hearts span:nth-child(4){left:90%;animation-delay:1s}
 
-.hearts span:nth-child(2) {
-    left: 25%;
-    animation-delay: 2s;
-}
+@keyframes floatingHeart{
 
-.hearts span:nth-child(3) {
-    left: 70%;
-    animation-delay: 4s;
-}
-
-.hearts span:nth-child(4) {
-    left: 90%;
-    animation-delay: 1s;
-}
-
-@keyframes floatingHeart {
-
-    0% {
-        transform:
-            translateY(0)
-            rotate(0deg);
-
-        opacity: 0;
+    0%{
+        transform:translateY(0) rotate(0);
+        opacity:0;
     }
 
-    15% {
-        opacity: .5;
+    15%{
+        opacity:.5;
     }
 
-    85% {
-        opacity: .25;
+    85%{
+        opacity:.25;
     }
 
-    100% {
-        transform:
-            translateY(-100vh)
-            rotate(35deg);
-
-        opacity: 0;
+    100%{
+        transform:translateY(-100vh) rotate(35deg);
+        opacity:0;
     }
 }
 
@@ -658,31 +533,25 @@ body {
    MAIN CONTAINER
 ========================================================= */
 
-.container {
+.container{
+    position:relative;
 
-    position: relative;
+    width:min(94%,620px);
 
-    width: min(94%,620px);
+    border-radius:36px;
 
-    border-radius: 36px;
+    overflow:visible;
 
-    overflow: visible;
+    background:rgba(255,255,255,.055);
 
-    background:
-        rgba(255,255,255,.055);
+    border:1px solid rgba(255,255,255,.13);
 
-    border:
-        1px solid
-        rgba(255,255,255,.13);
-
-    backdrop-filter:
-        blur(20px);
+    backdrop-filter:blur(20px);
 
     box-shadow:
-        0 30px 100px
-        rgba(0,0,0,.55);
+        0 30px 100px rgba(0,0,0,.55);
 
-    text-align: center;
+    text-align:center;
 }
 
 
@@ -690,78 +559,29 @@ body {
    MUSIC BUTTON
 ========================================================= */
 
-.music-button {
+.music-button{
+    position:absolute;
 
-    position: absolute;
+    top:18px;
+    right:18px;
 
-    top: 18px;
-    right: 18px;
+    z-index:50;
 
-    z-index: 50;
+    border:1px solid rgba(255,255,255,.15);
 
-    border:
-        1px solid
-        rgba(255,255,255,.15);
+    background:rgba(255,255,255,.08);
 
-    background:
-        rgba(255,255,255,.08);
+    color:white;
 
-    color: white;
+    padding:9px 14px;
 
-    padding:
-        9px 14px;
+    border-radius:30px;
 
-    border-radius: 30px;
+    cursor:pointer;
 
-    cursor: pointer;
+    font-size:12px;
 
-    font-size: 12px;
-
-    backdrop-filter:
-        blur(10px);
-
-    transition: .25s;
-}
-
-.music-button:hover {
-
-    background:
-        rgba(255,255,255,.14);
-
-    transform:
-        translateY(-2px);
-}
-
-
-/* Music status */
-
-.music-status {
-
-    position: absolute;
-
-    top: 60px;
-    right: 18px;
-
-    z-index: 40;
-
-    display: none;
-
-    padding:
-        8px 12px;
-
-    border-radius: 15px;
-
-    background:
-        rgba(255,80,120,.15);
-
-    border:
-        1px solid
-        rgba(255,150,180,.2);
-
-    color:
-        rgba(255,255,255,.75);
-
-    font-size: 11px;
+    backdrop-filter:blur(10px);
 }
 
 
@@ -769,111 +589,85 @@ body {
    PAGES
 ========================================================= */
 
-.page {
+.page{
+    display:none;
 
-    display: none;
+    min-height:680px;
 
-    min-height: 680px;
+    padding:65px 25px 50px;
 
-    padding:
-        65px 25px 50px;
+    flex-direction:column;
 
-    flex-direction: column;
+    justify-content:center;
 
-    justify-content: center;
-
-    align-items: center;
+    align-items:center;
 }
 
-.page.active {
-
-    display: flex;
+.page.active{
+    display:flex;
 
     animation:
         pageIn
-        .8s
-        ease;
+        .8s ease;
 }
 
-#page4 {
-
-    justify-content:
-        flex-start;
-
-    padding:
-        90px 25px 80px;
+#page4{
+    justify-content:flex-start;
+    padding:90px 25px 80px;
 }
 
-@keyframes pageIn {
+@keyframes pageIn{
 
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(25px)
-            scale(.97);
+    from{
+        opacity:0;
+        transform:translateY(25px) scale(.97);
     }
 
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
+    to{
+        opacity:1;
+        transform:none;
     }
 }
 
 
 /* =========================================================
-   TYPOGRAPHY
+   TEXT
 ========================================================= */
 
-.eyebrow {
-
-    font-size: 10px;
-
-    letter-spacing: 4px;
-
-    text-transform: uppercase;
-
-    color: #f9a8d4;
-
-    margin-bottom: 15px;
+.eyebrow{
+    font-size:10px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:#f9a8d4;
+    margin-bottom:15px;
 }
 
-h1 {
-
+h1{
     font-family:
         Georgia,
         "Times New Roman",
         serif;
 
     font-size:
-        clamp(
-            38px,
-            9vw,
-            60px
-        );
+        clamp(38px,9vw,60px);
 
-    line-height: 1;
+    line-height:1;
 
-    letter-spacing: -3px;
+    letter-spacing:-3px;
 
-    font-weight: 500;
+    font-weight:500;
 
-    margin-bottom: 20px;
+    margin-bottom:20px;
 }
 
-.subtitle {
+.subtitle{
+    max-width:450px;
 
-    max-width: 450px;
+    color:rgba(255,255,255,.65);
 
-    color:
-        rgba(255,255,255,.65);
+    line-height:1.8;
 
-    line-height: 1.8;
-
-    font-size: 15px;
+    font-size:15px;
 }
 
 
@@ -881,12 +675,10 @@ h1 {
    HEART
 ========================================================= */
 
-.big-heart {
+.big-heart{
+    font-size:100px;
 
-    font-size: 100px;
-
-    margin:
-        20px 0;
+    margin:20px 0;
 
     filter:
         drop-shadow(
@@ -896,18 +688,17 @@ h1 {
 
     animation:
         heartbeat
-        1.5s
-        infinite;
+        1.5s infinite;
 }
 
-@keyframes heartbeat {
+@keyframes heartbeat{
 
-    0%,100% {
-        transform: scale(1);
+    0%,100%{
+        transform:scale(1);
     }
 
-    50% {
-        transform: scale(1.12);
+    50%{
+        transform:scale(1.12);
     }
 }
 
@@ -916,16 +707,14 @@ h1 {
    BUTTON
 ========================================================= */
 
-.primary {
+.primary{
+    margin-top:28px;
 
-    margin-top: 28px;
+    padding:16px 28px;
 
-    padding:
-        16px 28px;
+    border:none;
 
-    border: none;
-
-    border-radius: 18px;
+    border-radius:18px;
 
     background:
         linear-gradient(
@@ -934,38 +723,33 @@ h1 {
             #ec4899
         );
 
-    color: white;
+    color:white;
 
-    font-size: 16px;
+    font-size:16px;
 
-    font-weight: 800;
+    font-weight:800;
 
-    cursor: pointer;
+    cursor:pointer;
 
     box-shadow:
         0 15px 40px
         rgba(236,72,153,.35);
 
-    transition: .25s;
+    transition:.25s;
 }
 
-.primary:hover {
-
-    transform:
-        translateY(-4px);
+.primary:hover{
+    transform:translateY(-4px) scale(1.02);
 
     box-shadow:
         0 20px 50px
         rgba(236,72,153,.5);
 }
 
-.primary:disabled {
-
-    opacity: .45;
-
-    cursor: not-allowed;
-
-    transform: none;
+.primary:disabled{
+    opacity:.45;
+    cursor:not-allowed;
+    transform:none;
 }
 
 
@@ -973,28 +757,20 @@ h1 {
    LOVE METER
 ========================================================= */
 
-.meter {
-
-    width:
-        min(480px,100%);
+.meter{
+    width:min(480px,100%);
 }
 
-.emoji {
-
-    font-size: 70px;
-
-    margin: 10px;
-
-    transition: .3s;
+.emoji{
+    font-size:70px;
+    margin:10px;
+    transition:.3s;
 }
 
-.percentage {
-
-    font-size: 80px;
-
-    font-weight: 950;
-
-    letter-spacing: -6px;
+.percentage{
+    font-size:80px;
+    font-weight:950;
+    letter-spacing:-6px;
 
     background:
         linear-gradient(
@@ -1004,48 +780,42 @@ h1 {
             #ec4899
         );
 
-    -webkit-background-clip: text;
+    -webkit-background-clip:text;
 
-    color: transparent;
+    color:transparent;
 }
 
-.message {
+.message{
+    min-height:25px;
 
-    min-height: 25px;
+    color:rgba(255,255,255,.6);
 
-    color:
-        rgba(255,255,255,.6);
-
-    font-size: 14px;
+    font-size:14px;
 }
 
 
 /* =========================================================
-   PROGRESS BAR
+   PROGRESS
 ========================================================= */
 
-.progress {
+.progress{
+    height:17px;
 
-    height: 17px;
+    margin:25px 0 8px;
 
-    margin:
-        25px 0 8px;
+    padding:3px;
 
-    padding: 3px;
+    border-radius:30px;
 
-    border-radius: 30px;
-
-    background:
-        rgba(255,255,255,.1);
+    background:rgba(255,255,255,.1);
 }
 
-.progress-bar {
+.progress-bar{
+    height:100%;
 
-    height: 100%;
+    width:0%;
 
-    width: 0%;
-
-    border-radius: 30px;
+    border-radius:30px;
 
     background:
         linear-gradient(
@@ -1059,62 +829,49 @@ h1 {
         0 0 25px
         rgba(236,72,153,.7);
 
-    transition:
-        width .3s;
+    transition:width .3s;
 }
 
-input[type="range"] {
+input[type="range"]{
+    width:100%;
 
-    width: 100%;
+    height:45px;
 
-    height: 45px;
+    accent-color:#ec4899;
 
-    accent-color: #ec4899;
-
-    cursor: pointer;
+    cursor:pointer;
 }
 
-.labels {
+.labels{
+    display:flex;
+    justify-content:space-between;
 
-    display: flex;
+    color:rgba(255,255,255,.4);
 
-    justify-content:
-        space-between;
-
-    color:
-        rgba(255,255,255,.4);
-
-    font-size: 11px;
+    font-size:11px;
 }
 
-.warning {
+.warning{
+    min-height:22px;
 
-    min-height: 22px;
+    margin-top:10px;
 
-    margin-top: 10px;
+    color:#f9a8d4;
 
-    color: #f9a8d4;
-
-    font-size: 13px;
+    font-size:13px;
 }
 
 
 /* =========================================================
-   100% REVEAL
+   100%
 ========================================================= */
 
-.hundred {
+.hundred{
+    font-size:clamp(75px,18vw,130px);
 
-    font-size:
-        clamp(
-            75px,
-            18vw,
-            130px
-        );
+    font-weight:1000;
 
-    font-weight: 1000;
-
-    letter-spacing: -8px;
+    letter-spacing:-8px;
 
     background:
         linear-gradient(
@@ -1124,30 +881,25 @@ input[type="range"] {
             #ec4899
         );
 
-    -webkit-background-clip: text;
+    -webkit-background-clip:text;
 
-    color: transparent;
+    color:transparent;
 
     animation:
         pop
-        .9s
-        ease;
+        .9s ease;
 }
 
-@keyframes pop {
+@keyframes pop{
 
-    from {
-        opacity: 0;
-
-        transform:
-            scale(.4);
+    from{
+        opacity:0;
+        transform:scale(.4);
     }
 
-    to {
-        opacity: 1;
-
-        transform:
-            scale(1);
+    to{
+        opacity:1;
+        transform:scale(1);
     }
 }
 
@@ -1156,34 +908,27 @@ input[type="range"] {
    GIFT
 ========================================================= */
 
-.gift-area {
+.gift-area{
+    width:210px;
+    height:200px;
 
-    width: 210px;
+    display:flex;
 
-    height: 200px;
+    justify-content:center;
+    align-items:center;
 
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    margin:
-        20px 0 10px;
+    margin:20px 0 10px;
 }
 
-.gift {
+.gift{
+    position:relative;
 
-    position: relative;
+    width:140px;
+    height:110px;
 
-    width: 140px;
+    cursor:pointer;
 
-    height: 110px;
-
-    cursor: pointer;
-
-    transition:
-        transform .5s ease;
+    transition:transform .5s ease;
 
     filter:
         drop-shadow(
@@ -1192,24 +937,21 @@ input[type="range"] {
         );
 }
 
-.gift:hover {
-
+.gift:hover{
     transform:
         translateY(-8px)
         scale(1.07);
 }
 
-.gift-body {
+.gift-body{
+    position:absolute;
 
-    position: absolute;
+    bottom:0;
 
-    bottom: 0;
+    width:140px;
+    height:85px;
 
-    width: 140px;
-
-    height: 85px;
-
-    border-radius: 10px;
+    border-radius:10px;
 
     background:
         linear-gradient(
@@ -1219,19 +961,16 @@ input[type="range"] {
         );
 }
 
-.gift-lid {
+.gift-lid{
+    position:absolute;
 
-    position: absolute;
+    top:12px;
+    left:-8px;
 
-    top: 12px;
+    width:156px;
+    height:36px;
 
-    left: -8px;
-
-    width: 156px;
-
-    height: 36px;
-
-    border-radius: 9px;
+    border-radius:9px;
 
     background:
         linear-gradient(
@@ -1240,91 +979,76 @@ input[type="range"] {
             #9d174d
         );
 
-    z-index: 2;
+    z-index:2;
 }
 
-.ribbon-v {
+.ribbon-v{
+    position:absolute;
 
-    position: absolute;
+    left:55px;
+    bottom:0;
 
-    left: 55px;
+    width:30px;
+    height:110px;
 
-    bottom: 0;
+    background:#fde7f3;
 
-    width: 30px;
-
-    height: 110px;
-
-    background: #fde7f3;
-
-    z-index: 3;
+    z-index:3;
 }
 
-.ribbon-h {
+.ribbon-h{
+    position:absolute;
 
-    position: absolute;
+    left:-8px;
+    top:20px;
 
-    left: -8px;
+    width:156px;
+    height:15px;
 
-    top: 20px;
+    background:#fde7f3;
 
-    width: 156px;
-
-    height: 15px;
-
-    background: #fde7f3;
-
-    z-index: 4;
+    z-index:4;
 }
 
-.bow {
+.bow{
+    position:absolute;
 
-    position: absolute;
+    top:-14px;
+    left:44px;
 
-    top: -14px;
+    width:52px;
+    height:25px;
 
-    left: 44px;
-
-    width: 52px;
-
-    height: 25px;
-
-    z-index: 5;
+    z-index:5;
 }
 
 .bow::before,
-.bow::after {
+.bow::after{
+    content:"";
 
-    content: "";
+    position:absolute;
 
-    position: absolute;
-
-    width: 32px;
-
-    height: 24px;
+    width:32px;
+    height:24px;
 
     border:
         8px solid
         #fde7f3;
 }
 
-.bow::before {
+.bow::before{
+    left:-13px;
 
-    left: -13px;
-
-    transform:
-        rotate(25deg);
+    transform:rotate(25deg);
 
     border-radius:
         70% 30% 60% 40%;
 }
 
-.bow::after {
+.bow::after{
+    right:-13px;
 
-    right: -13px;
-
-    transform:
-        rotate(-25deg);
+    transform:rotate(-25deg);
 
     border-radius:
         30% 70% 40% 60%;
@@ -1335,18 +1059,15 @@ input[type="range"] {
    LETTER
 ========================================================= */
 
-.letter {
+.letter{
+    width:100%;
+    max-width:500px;
 
-    width: 100%;
+    padding:30px 24px;
 
-    max-width: 500px;
+    margin-top:25px;
 
-    padding:
-        30px 24px;
-
-    margin-top: 25px;
-
-    border-radius: 28px;
+    border-radius:28px;
 
     background:
         linear-gradient(
@@ -1365,74 +1086,58 @@ input[type="range"] {
 
     animation:
         letterIn
-        .8s
-        ease;
+        .8s ease;
 
-    scroll-margin-top: 30px;
+    scroll-margin-top:30px;
 }
 
-.letter-icon {
-
-    font-size: 58px;
-
-    margin-bottom: 5px;
+.letter-icon{
+    font-size:58px;
+    margin-bottom:5px;
 }
 
-.letter h2 {
+.letter h2{
+    font-family:Georgia,serif;
 
-    font-family:
-        Georgia,
-        serif;
+    font-size:36px;
 
-    font-size: 36px;
+    font-weight:500;
 
-    font-weight: 500;
-
-    margin:
-        8px 0 18px;
+    margin:8px 0 18px;
 }
 
-.letter p {
+.letter p{
+    color:rgba(255,255,255,.72);
 
-    color:
-        rgba(255,255,255,.72);
+    line-height:1.9;
 
-    line-height: 1.9;
+    font-size:15px;
 
-    font-size: 15px;
-
-    margin: 12px 0;
+    margin:12px 0;
 }
 
-.signature {
+.signature{
+    margin-top:24px;
 
-    margin-top: 24px;
+    color:#f9a8d4;
 
-    color: #f9a8d4;
+    font-weight:800;
 
-    font-weight: 800;
-
-    line-height: 1.8;
+    line-height:1.8;
 }
 
-@keyframes letterIn {
+@keyframes letterIn{
 
-    from {
-
-        opacity: 0;
-
+    from{
+        opacity:0;
         transform:
             translateY(25px)
             scale(.94);
     }
 
-    to {
-
-        opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
+    to{
+        opacity:1;
+        transform:none;
     }
 }
 
@@ -1441,71 +1146,43 @@ input[type="range"] {
    MOBILE
 ========================================================= */
 
-@media(max-width:500px) {
+@media(max-width:500px){
 
-    body {
-        padding:
-            10px 0 30px;
+    body{
+        padding:10px 0 30px;
     }
 
-    .container {
-
-        width: 95%;
-
-        border-radius: 28px;
+    .container{
+        width:95%;
+        border-radius:28px;
     }
 
-    .page {
-
-        min-height: 650px;
-
-        padding:
-            65px 18px 45px;
+    .page{
+        min-height:650px;
+        padding:65px 18px 45px;
     }
 
-    #page4 {
-
-        min-height: auto;
-
-        padding:
-            90px 18px 70px;
+    #page4{
+        min-height:auto;
+        padding:90px 18px 70px;
     }
 
-    h1 {
-
-        font-size: 42px;
-
-        letter-spacing: -2px;
+    h1{
+        font-size:42px;
+        letter-spacing:-2px;
     }
 
-    .percentage {
-
-        font-size: 70px;
+    .percentage{
+        font-size:70px;
     }
 
-    .letter {
-
-        padding:
-            27px 20px;
+    .letter{
+        padding:27px 20px;
     }
 
-    .intro-final {
-
-        letter-spacing:
-            .10em;
-    }
-}
-
-
-/* =========================================================
-   REDUCE MOTION
-========================================================= */
-
-@media(prefers-reduced-motion:reduce) {
-
-    * {
-        animation: none !important;
-        transition: none !important;
+    .intro-signature{
+        top:calc(50% + 70px);
+        letter-spacing:.18em;
     }
 }
 
@@ -1522,57 +1199,49 @@ input[type="range"] {
 
 <div id="intro">
 
-    <div class="intro-stars"></div>
+    <div class="star-field"></div>
 
-    <div class="intro-glow"></div>
+    <canvas id="particleCanvas"></canvas>
 
-    <div class="intro-particles">
+    <div class="energy-core"></div>
 
-        <span>✦</span>
-        <span>·</span>
-        <span>✧</span>
-        <span>·</span>
-        <span>✦</span>
-        <span>·</span>
-        <span>✧</span>
-        <span>·</span>
-
-    </div>
+    <div class="energy-ring ring1"></div>
+    <div class="energy-ring ring2"></div>
+    <div class="energy-ring ring3"></div>
 
 
-    <div class="intro-content">
+    <div class="intro-copy">
 
-        <div
-            class="intro-line"
-            id="introLine1"
-        >
+        <div class="intro-message message1">
             Some things...
         </div>
 
-
-        <div
-            class="intro-line"
-            id="introLine2"
-        >
+        <div class="intro-message message2">
             can't be measured.
         </div>
 
-
-        <div class="intro-heart">
-            ♡
+        <div class="cinematic-heart">
+            ❤️
         </div>
 
-
-        <div class="intro-final">
+        <div class="anam-title">
             FOR ANAM
         </div>
 
-
-        <div class="intro-sub">
-            ✦ made especially for you ✦
+        <div class="intro-signature">
+            made by Abdul Rahman
         </div>
 
     </div>
+
+
+    <button
+        class="intro-skip"
+        id="skipIntro"
+        type="button"
+    >
+        Skip intro
+    </button>
 
 </div>
 
@@ -1582,7 +1251,7 @@ input[type="range"] {
      BACKGROUND
 ===================================================== -->
 
-<div class="stars"></div>
+<div class="main-stars"></div>
 
 
 <div class="hearts">
@@ -1603,25 +1272,13 @@ input[type="range"] {
 <div class="container">
 
 
-    <!-- MUSIC BUTTON -->
-
     <button
         class="music-button"
         id="musicButton"
         type="button"
     >
-        ♪ Music OFF
+        ♪ Music
     </button>
-
-
-    <!-- MUSIC STATUS -->
-
-    <div
-        class="music-status"
-        id="musicStatus"
-    >
-        Tap Music to play 🎵
-    </div>
 
 
 
@@ -1737,16 +1394,13 @@ input[type="range"] {
                 min="0"
                 max="100"
                 value="0"
-                aria-label="Love percentage"
             >
 
 
             <div class="labels">
 
                 <span>0%</span>
-
                 <span>50%</span>
-
                 <span>100% ❤️</span>
 
             </div>
@@ -1766,7 +1420,6 @@ input[type="range"] {
             >
                 Lock my answer 🔒
             </button>
-
 
         </div>
 
@@ -1857,9 +1510,7 @@ input[type="range"] {
             <div
                 class="gift"
                 id="gift"
-                role="button"
                 tabindex="0"
-                aria-label="Open the gift"
             >
 
                 <div class="bow"></div>
@@ -1886,8 +1537,6 @@ input[type="range"] {
             Tap the gift to open it 🎁
         </div>
 
-
-        <!-- LETTER -->
 
         <div
             class="letter"
@@ -1961,52 +1610,594 @@ input[type="range"] {
 
 
 <!-- =====================================================
-     AUDIO
-
-     IMPORTANT:
-     safari.mp3 must be in the SAME folder as index.html
+     SONG
 ===================================================== -->
 
 <audio
     id="song"
+    src="./safari.mp3"
     preload="auto"
     loop
->
-
-    <source
-        src="./safari.mp3"
-        type="audio/mpeg"
-    >
-
-</audio>
+></audio>
 
 
 
 <script>
 
 /* =========================================================
-   CINEMATIC INTRO
+   PARTICLE ENGINE
+========================================================= */
+
+const canvas =
+    document.getElementById("particleCanvas");
+
+const ctx =
+    canvas.getContext("2d");
+
+let particles = [];
+
+let particleMode = "stars";
+
+let animationStart =
+    performance.now();
+
+
+function resizeCanvas(){
+
+    canvas.width =
+        window.innerWidth *
+        devicePixelRatio;
+
+    canvas.height =
+        window.innerHeight *
+        devicePixelRatio;
+
+    canvas.style.width =
+        window.innerWidth + "px";
+
+    canvas.style.height =
+        window.innerHeight + "px";
+
+    ctx.setTransform(
+        devicePixelRatio,
+        0,
+        0,
+        devicePixelRatio,
+        0,
+        0
+    );
+}
+
+
+resizeCanvas();
+
+window.addEventListener(
+    "resize",
+    resizeCanvas
+);
+
+
+/* Create universe particles */
+
+function createStars(){
+
+    particles = [];
+
+    const count =
+        Math.min(
+            500,
+            Math.floor(
+                window.innerWidth *
+                window.innerHeight /
+                3000
+            )
+        );
+
+    for(let i=0;i<count;i++){
+
+        particles.push({
+
+            x:Math.random()*window.innerWidth,
+
+            y:Math.random()*window.innerHeight,
+
+            size:
+                Math.random()*2+0.4,
+
+            alpha:
+                Math.random()*.8+.2,
+
+            speed:
+                Math.random()*.3+.05
+
+        });
+
+    }
+}
+
+
+createStars();
+
+
+/* Draw stars */
+
+function drawStars(){
+
+    ctx.clearRect(
+        0,
+        0,
+        window.innerWidth,
+        window.innerHeight
+    );
+
+    for(const p of particles){
+
+        ctx.beginPath();
+
+        ctx.arc(
+            p.x,
+            p.y,
+            p.size,
+            0,
+            Math.PI*2
+        );
+
+        ctx.fillStyle =
+            `rgba(255,220,245,${p.alpha})`;
+
+        ctx.fill();
+
+        p.y -= p.speed;
+
+        if(p.y < 0){
+
+            p.y =
+                window.innerHeight;
+
+        }
+
+    }
+
+}
+
+
+/* =========================================================
+   HEART PARTICLES
+========================================================= */
+
+let heartParticles = [];
+
+
+function createHeartParticles(){
+
+    heartParticles = [];
+
+    const centerX =
+        window.innerWidth/2;
+
+    const centerY =
+        window.innerHeight/2;
+
+
+    for(let i=0;i<700;i++){
+
+        const t =
+            Math.random() *
+            Math.PI *
+            2;
+
+
+        const scale =
+            Math.min(
+                window.innerWidth,
+                window.innerHeight
+            ) *
+            .012;
+
+
+        const x =
+            16 *
+            Math.pow(
+                Math.sin(t),
+                3
+            );
+
+
+        const y =
+            -(
+                13*Math.cos(t)
+                -5*Math.cos(2*t)
+                -2*Math.cos(3*t)
+                -Math.cos(4*t)
+            );
+
+
+        heartParticles.push({
+
+            x:centerX+x*scale,
+
+            y:centerY+y*scale,
+
+            targetX:centerX+x*scale,
+
+            targetY:centerY+y*scale,
+
+            vx:(Math.random()-.5)*2,
+
+            vy:(Math.random()-.5)*2,
+
+            size:
+                Math.random()*2.5+.5,
+
+            alpha:
+                Math.random()*.7+.3
+
+        });
+
+    }
+
+}
+
+
+/* =========================================================
+   HEART EXPLOSION
+========================================================= */
+
+function explodeHeart(){
+
+    for(const p of heartParticles){
+
+        const dx =
+            p.x -
+            window.innerWidth/2;
+
+        const dy =
+            p.y -
+            window.innerHeight/2;
+
+        const distance =
+            Math.sqrt(
+                dx*dx+
+                dy*dy
+            ) || 1;
+
+
+        const force =
+            Math.random()*9+4;
+
+
+        p.vx =
+            dx/distance*force;
+
+        p.vy =
+            dy/distance*force;
+    }
+
+}
+
+
+/* =========================================================
+   ANIMATION LOOP
+========================================================= */
+
+function animate(){
+
+    const elapsed =
+        performance.now() -
+        animationStart;
+
+
+    if(
+        elapsed < 4000
+    ){
+
+        drawStars();
+
+    }
+
+    else if(
+        elapsed < 6700
+    ){
+
+        ctx.clearRect(
+            0,
+            0,
+            window.innerWidth,
+            window.innerHeight
+        );
+
+
+        if(
+            heartParticles.length===0
+        ){
+
+            createHeartParticles();
+
+        }
+
+
+        for(const p of heartParticles){
+
+            p.x +=
+                (p.targetX-p.x)*.035;
+
+            p.y +=
+                (p.targetY-p.y)*.035;
+
+
+            ctx.beginPath();
+
+            ctx.arc(
+                p.x,
+                p.y,
+                p.size,
+                0,
+                Math.PI*2
+            );
+
+
+            ctx.fillStyle =
+                `rgba(255,170,220,${p.alpha})`;
+
+            ctx.fill();
+
+        }
+
+    }
+
+    else if(
+        elapsed < 9000
+    ){
+
+        ctx.clearRect(
+            0,
+            0,
+            window.innerWidth,
+            window.innerHeight
+        );
+
+
+        if(
+            elapsed < 7300
+        ){
+
+            explodeHeart();
+
+        }
+
+
+        for(const p of heartParticles){
+
+            p.x += p.vx;
+
+            p.y += p.vy;
+
+            p.vx *= .985;
+
+            p.vy *= .985;
+
+
+            ctx.beginPath();
+
+            ctx.arc(
+                p.x,
+                p.y,
+                p.size,
+                0,
+                Math.PI*2
+            );
+
+
+            ctx.fillStyle =
+                `rgba(249,168,212,.65)`;
+
+            ctx.fill();
+
+        }
+
+    }
+
+    else{
+
+        drawStars();
+
+    }
+
+
+    requestAnimationFrame(
+        animate
+    );
+}
+
+
+animate();
+
+
+
+/* =========================================================
+   INTRO
 ========================================================= */
 
 const intro =
     document.getElementById("intro");
 
+const skipIntro =
+    document.getElementById("skipIntro");
 
-/*
-   Intro lasts about 8.2 seconds.
-*/
 
-setTimeout(() => {
+function closeIntro(){
 
     intro.classList.add("hide");
 
-    setTimeout(() => {
+    setTimeout(
+        () => {
 
-        intro.style.display = "none";
+            intro.style.display =
+                "none";
 
-    }, 1600);
+        },
+        1800
+    );
 
-}, 8200);
+}
+
+
+setTimeout(
+    closeIntro,
+    9300
+);
+
+
+skipIntro.addEventListener(
+    "click",
+    closeIntro
+);
+
+
+
+/* =========================================================
+   MUSIC
+========================================================= */
+
+const song =
+    document.getElementById("song");
+
+const musicButton =
+    document.getElementById("musicButton");
+
+let musicPlaying =
+    false;
+
+
+/*
+   Browser autoplay policy means
+   sound cannot always start on page load.
+
+   We attempt it anyway.
+*/
+
+async function tryAutoplay(){
+
+    try{
+
+        song.volume=.35;
+
+        await song.play();
+
+        musicPlaying=true;
+
+        musicButton.textContent=
+            "♪ Music ON";
+
+    }
+
+    catch(error){
+
+        console.log(
+            "Autoplay blocked by browser."
+        );
+
+        musicPlaying=false;
+
+        musicButton.textContent=
+            "♪ Tap for Music";
+
+    }
+
+}
+
+
+/*
+   Try immediately.
+*/
+
+tryAutoplay();
+
+
+/*
+   First interaction fallback.
+
+   If autoplay was blocked,
+   the first tap anywhere starts it.
+*/
+
+function firstInteraction(){
+
+    if(!musicPlaying){
+
+        song.play()
+        .then(()=>{
+
+            musicPlaying=true;
+
+            musicButton.textContent=
+                "♪ Music ON";
+
+        })
+        .catch(()=>{});
+
+    }
+
+    document.removeEventListener(
+        "click",
+        firstInteraction
+    );
+
+}
+
+
+document.addEventListener(
+    "click",
+    firstInteraction,
+    {once:true}
+);
+
+
+/*
+   Music button.
+*/
+
+musicButton.addEventListener(
+    "click",
+    async event => {
+
+        event.stopPropagation();
+
+        if(musicPlaying){
+
+            song.pause();
+
+            musicPlaying=false;
+
+            musicButton.textContent=
+                "♪ Music OFF";
+
+        }
+
+        else{
+
+            try{
+
+                await song.play();
+
+                musicPlaying=true;
+
+                musicButton.textContent=
+                    "♪ Music ON";
+
+            }
+
+            catch(error){
+
+                musicButton.textContent=
+                    "♪ Tap Again";
+
+            }
+
+        }
+
+    }
+);
 
 
 
@@ -2014,7 +2205,7 @@ setTimeout(() => {
    PAGE SYSTEM
 ========================================================= */
 
-const pages = [
+const pages=[
 
     document.getElementById("page1"),
 
@@ -2027,14 +2218,14 @@ const pages = [
 ];
 
 
-function showPage(number) {
+function showPage(number){
 
     pages.forEach(
-        (page, index) => {
+        (page,index)=>{
 
             page.classList.toggle(
                 "active",
-                index === number
+                index===number
             );
 
         }
@@ -2043,128 +2234,13 @@ function showPage(number) {
 
     window.scrollTo({
 
-        top: 0,
+        top:0,
 
-        behavior: "smooth"
+        behavior:"smooth"
 
     });
 
 }
-
-
-
-/* =========================================================
-   MUSIC SYSTEM
-========================================================= */
-
-const song =
-    document.getElementById("song");
-
-const musicButton =
-    document.getElementById("musicButton");
-
-const musicStatus =
-    document.getElementById("musicStatus");
-
-
-let musicPlaying = false;
-
-
-/*
-   Start music.
-
-   This function is called from
-   an actual user click.
-*/
-
-async function startMusic() {
-
-    try {
-
-        song.volume = 0.35;
-
-        /*
-           Make sure browser knows
-           about the audio file.
-        */
-
-        await song.play();
-
-        musicPlaying = true;
-
-        musicButton.textContent =
-            "♪ Music ON";
-
-        musicStatus.style.display =
-            "none";
-
-        return true;
-
-    }
-
-    catch(error) {
-
-        console.log(
-            "Music playback blocked:",
-            error
-        );
-
-        musicPlaying = false;
-
-        musicButton.textContent =
-            "♪ Play Music";
-
-        musicStatus.textContent =
-            "Tap Music to play 🎵";
-
-        musicStatus.style.display =
-            "block";
-
-        return false;
-
-    }
-
-}
-
-
-/*
-   Stop music.
-*/
-
-function stopMusic() {
-
-    song.pause();
-
-    musicPlaying = false;
-
-    musicButton.textContent =
-        "♪ Music OFF";
-
-}
-
-
-/*
-   Music button.
-*/
-
-musicButton.addEventListener(
-    "click",
-    async () => {
-
-        if (musicPlaying) {
-
-            stopMusic();
-
-        }
-
-        else {
-
-            await startMusic();
-
-        }
-
-    }
-);
 
 
 
@@ -2176,16 +2252,25 @@ document
 .getElementById("beginButton")
 .addEventListener(
     "click",
-    async () => {
+    async()=>{
 
-        /*
-           IMPORTANT:
+        if(!musicPlaying){
 
-           The music play request happens
-           directly inside the user's click.
-        */
+            try{
 
-        await startMusic();
+                await song.play();
+
+                musicPlaying=true;
+
+                musicButton.textContent=
+                    "♪ Music ON";
+
+            }
+
+            catch(error){}
+
+        }
+
 
         showPage(1);
 
@@ -2222,107 +2307,98 @@ const lockButton =
 
 slider.addEventListener(
     "input",
-    () => {
+    ()=>{
 
-        const value =
+        const value=
             Number(slider.value);
 
 
-        percentage.textContent =
-            value + "%";
+        percentage.textContent=
+            value+"%";
 
 
-        progressBar.style.width =
-            value + "%";
+        progressBar.style.width=
+            value+"%";
 
 
-        lockButton.disabled =
-            value === 0;
+        lockButton.disabled=
+            value===0;
 
 
-        warning.textContent =
-            "";
+        warning.textContent="";
 
 
-        if (value === 0) {
+        if(value===0){
 
-            emoji.textContent =
-                "🤔";
+            emoji.textContent="🤔";
 
-            message.textContent =
+            message.textContent=
                 "Move the scale to begin...";
 
         }
 
-        else if (value < 20) {
+        else if(value<20){
 
-            emoji.textContent =
-                "🙂";
+            emoji.textContent="🙂";
 
-            message.textContent =
+            message.textContent=
                 "A cute beginning...";
 
         }
 
-        else if (value < 40) {
+        else if(value<40){
 
-            emoji.textContent =
-                "😊";
+            emoji.textContent="😊";
 
-            message.textContent =
+            message.textContent=
                 "Okay... this is promising.";
 
         }
 
-        else if (value < 60) {
+        else if(value<60){
 
-            emoji.textContent =
-                "🥰";
+            emoji.textContent="🥰";
 
-            message.textContent =
+            message.textContent=
                 "The system is getting excited.";
 
         }
 
-        else if (value < 80) {
+        else if(value<80){
 
-            emoji.textContent =
-                "💕";
+            emoji.textContent="💕";
 
-            message.textContent =
+            message.textContent=
                 "Serious affection detected.";
 
         }
 
-        else if (value < 95) {
+        else if(value<95){
 
-            emoji.textContent =
-                "💖";
+            emoji.textContent="💖";
 
-            message.textContent =
+            message.textContent=
                 "Almost there...";
 
         }
 
-        else if (value < 100) {
+        else if(value<100){
 
-            emoji.textContent =
-                "😳";
+            emoji.textContent="😳";
 
-            message.textContent =
+            message.textContent=
                 "Anam... are you sure?!";
 
-            warning.textContent =
+            warning.textContent=
                 "The system is becoming unstable...";
 
         }
 
-        else {
+        else{
 
-            emoji.textContent =
-                "💘";
+            emoji.textContent="💘";
 
-            message.textContent =
+            message.textContent=
                 "MAXIMUM LOVE DETECTED.";
 
         }
@@ -2333,41 +2409,43 @@ slider.addEventListener(
 
 
 /* =========================================================
-   LOCK ANSWER
+   LOCK
 ========================================================= */
 
 lockButton.addEventListener(
     "click",
-    async () => {
+    async()=>{
 
-        const value =
+        const value=
             Number(slider.value);
 
 
-        if (value === 100) {
+        if(value===100){
 
-            if (!musicPlaying) {
+            if(!musicPlaying){
 
-                await startMusic();
+                try{
+
+                    await song.play();
+
+                    musicPlaying=true;
+
+                }
+
+                catch(error){}
 
             }
 
 
-            /*
-               Slight music increase
-               for the reveal.
-            */
-
-            song.volume = 0.45;
-
+            song.volume=.45;
 
             showPage(2);
 
         }
 
-        else {
+        else{
 
-            warning.textContent =
+            warning.textContent=
                 "Hmm... the system requires 100%. 😏";
 
         }
@@ -2385,17 +2463,15 @@ document
 .getElementById("giftButton")
 .addEventListener(
     "click",
-    () => {
-
+    ()=>{
         showPage(3);
-
     }
 );
 
 
 
 /* =========================================================
-   OPEN GIFT
+   GIFT
 ========================================================= */
 
 const gift =
@@ -2407,60 +2483,43 @@ const letter =
 const tapText =
     document.getElementById("tapText");
 
+let giftOpened=false;
 
-let giftOpened = false;
 
+function openGift(){
 
-function openGift() {
-
-    if (giftOpened) {
+    if(giftOpened)
         return;
-    }
 
 
-    giftOpened = true;
+    giftOpened=true;
 
 
-    /*
-       Gift moves away.
-    */
-
-    gift.style.transform =
+    gift.style.transform=
         "translateY(-20px) scale(.8) rotate(-6deg)";
 
 
-    tapText.textContent =
+    tapText.textContent=
         "Gift opened ❤️";
 
 
-    /*
-       Reveal letter.
-    */
-
     setTimeout(
-        () => {
+        ()=>{
 
-            letter.hidden = false;
+            letter.hidden=false;
 
-
-            /*
-               Wait for the letter
-               to actually render.
-            */
 
             requestAnimationFrame(
-                () => {
+                ()=>{
 
                     setTimeout(
-                        () => {
+                        ()=>{
 
                             letter.scrollIntoView({
 
-                                behavior:
-                                    "smooth",
+                                behavior:"smooth",
 
-                                block:
-                                    "center"
+                                block:"center"
 
                             });
 
@@ -2478,28 +2537,20 @@ function openGift() {
 }
 
 
-/*
-   Mouse / touch.
-*/
-
 gift.addEventListener(
     "click",
     openGift
 );
 
 
-/*
-   Keyboard.
-*/
-
 gift.addEventListener(
     "keydown",
-    event => {
+    event=>{
 
-        if (
-            event.key === "Enter" ||
-            event.key === " "
-        ) {
+        if(
+            event.key==="Enter" ||
+            event.key===" "
+        ){
 
             event.preventDefault();
 
@@ -2518,46 +2569,14 @@ gift.addEventListener(
 
 song.addEventListener(
     "error",
-    () => {
+    ()=>{
 
-        musicButton.textContent =
-            "♪ Music unavailable";
+        musicButton.textContent=
+            "♪ Song unavailable";
 
-        musicStatus.textContent =
-            "safari.mp3 could not be loaded.";
-
-        musicStatus.style.display =
-            "block";
-
-    }
-);
-
-
-/*
-   Synchronize button.
-*/
-
-song.addEventListener(
-    "play",
-    () => {
-
-        musicPlaying = true;
-
-        musicButton.textContent =
-            "♪ Music ON";
-
-    }
-);
-
-
-song.addEventListener(
-    "pause",
-    () => {
-
-        musicPlaying = false;
-
-        musicButton.textContent =
-            "♪ Play Music";
+        console.log(
+            "Could not load safari.mp3"
+        );
 
     }
 );
