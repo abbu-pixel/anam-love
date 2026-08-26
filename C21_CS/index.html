@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Anam ❤️</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    color:white;
+
+    background:
+        radial-gradient(
+            circle at 50% 10%,
+            #5b2055 0%,
+            #281332 35%,
+            #0b0713 80%
+        );
+}
+
+
+/* =========================
+   STARS
+========================= */
+
+.stars{
+    position:fixed;
+    inset:0;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.8) 1px,
+            transparent 1.5px
+        ),
+        radial-gradient(
+            circle,
+            rgba(255,170,220,.5) 1px,
+            transparent 1.5px
+        );
+
+    background-size:
+        75px 85px,
+        130px 145px;
+
+    opacity:.35;
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.hearts span{
+    position:fixed;
+    bottom:-50px;
+
+    font-size:20px;
+
+    opacity:0;
+
+    animation:
+        floatingHeart
+        9s
+        linear
+        infinite;
+}
+
+.hearts span:nth-child(1){
+    left:8%;
+}
+
+.hearts span:nth-child(2){
+    left:25%;
+    animation-delay:2s;
+}
+
+.hearts span:nth-child(3){
+    left:70%;
+    animation-delay:4s;
+}
+
+.hearts span:nth-child(4){
+    left:90%;
+    animation-delay:1s;
+}
+
+@keyframes floatingHeart{
+
+    0%{
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity:0;
+    }
+
+    15%{
+        opacity:.5;
+    }
+
+    85%{
+        opacity:.25;
+    }
+
+    100%{
+        transform:
+            translateY(-100vh)
+            rotate(35deg);
+
+        opacity:0;
+    }
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+.container{
+
+    position:relative;
+
+    width:min(94%,620px);
+
+    min-height:680px;
+
+    border-radius:36px;
+
+    overflow:hidden;
+
+    background:
+        rgba(255,255,255,.055);
+
+    border:
+        1px solid
+        rgba(255,255,255,.13);
+
+    backdrop-filter:
+        blur(20px);
+
+    box-shadow:
+        0 30px 100px
+        rgba(0,0,0,.55);
+
+    text-align:center;
+}
+
+
+/* =========================
+   MUSIC BUTTON
+========================= */
+
+.music-button{
+
+    position:absolute;
+
+    top:18px;
+    right:18px;
+
+    z-index:20;
+
+    border:
+        1px solid
+        rgba(255,255,255,.15);
+
+    background:
+        rgba(255,255,255,.08);
+
+    color:white;
+
+    padding:
+        9px
+        14px;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    font-size:12px;
+
+    backdrop-filter:blur(10px);
+
+}
+
+
+/* =========================
+   PAGES
+========================= */
+
+.page{
+
+    display:none;
+
+    min-height:680px;
+
+    padding:
+        50px 25px;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+.page.active{
+
+    display:flex;
+
+    animation:
+        pageIn
+        .8s
+        ease;
+}
+
+@keyframes pageIn{
+
+    from{
+        opacity:0;
+
+        transform:
+            translateY(25px)
+            scale(.97);
+    }
+
+    to{
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================
+   TEXT
+========================= */
+
+.eyebrow{
+
+    font-size:10px;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    color:#f9a8d4;
+
+    margin-bottom:15px;
+}
+
+h1{
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(
+            38px,
+            9vw,
+            60px
+        );
+
+    line-height:1;
+
+    letter-spacing:-3px;
+
+    font-weight:500;
+
+    margin-bottom:20px;
+}
+
+.subtitle{
+
+    max-width:450px;
+
+    color:
+        rgba(255,255,255,.65);
+
+    line-height:1.8;
+
+    font-size:15px;
+}
+
+
+/* =========================
+   HEART
+========================= */
+
+.big-heart{
+
+    font-size:100px;
+
+    margin:
+        20px 0;
+
+    filter:
+        drop-shadow(
+            0 0 30px
+            rgba(244,63,94,.55)
+        );
+
+    animation:
+        heartbeat
+        1.5s
+        infinite;
+}
+
+@keyframes heartbeat{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.12);
+    }
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.primary{
+
+    margin-top:28px;
+
+    padding:
+        16px
+        28px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f43f5e,
+            #ec4899
+        );
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 15px 40px
+        rgba(236,72,153,.35);
+
+    transition:.25s;
+}
+
+.primary:hover{
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 20px 50px
+        rgba(236,72,153,.5);
+}
+
+
+/* =========================
+   LOVE METER
+========================= */
+
+.meter{
+
+    width:
+        min(480px,100%);
+}
+
+.emoji{
+
+    font-size:70px;
+
+    margin:10px;
+
+    transition:.3s;
+}
+
+.percentage{
+
+    font-size:80px;
+
+    font-weight:950;
+
+    letter-spacing:-6px;
+
+    background:
+        linear-gradient(
+            180deg,
+            white,
+            #f9a8d4,
+            #ec4899
+        );
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+}
+
+.message{
+
+    height:25px;
+
+    color:
+        rgba(255,255,255,.6);
+
+    font-size:14px;
+}
+
+
+/* =========================
+   PROGRESS BAR
+========================= */
+
+.progress{
+
+    height:17px;
+
+    margin:
+        25px 0 8px;
+
+    padding:3px;
+
+    border-radius:30px;
+
+    background:
+        rgba(255,255,255,.1);
+}
+
+.progress-bar{
+
+    height:100%;
+
+    width:0%;
+
+    border-radius:30px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fb7185,
+            #ec4899,
+            #f9a8d4
+        );
+
+    box-shadow:
+        0 0 25px
+        rgba(236,72,153,.7);
+
+    transition:
+        width .3s;
+}
+
+input[type="range"]{
+
+    width:100%;
+
+    height:45px;
+
+    accent-color:#ec4899;
+
+    cursor:pointer;
+}
+
+.labels{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    color:
+        rgba(255,255,255,.4);
+
+    font-size:11px;
+}
+
+.warning{
+
+    height:22px;
+
+    margin-top:10px;
+
+    color:#f9a8d4;
+
+    font-size:13px;
+}
+
+
+/* =========================
+   100%
+========================= */
+
+.hundred{
+
+    font-size:
+        clamp(
+            75px,
+            18vw,
+            130px
+        );
+
+    font-weight:1000;
+
+    letter-spacing:-8px;
+
+    background:
+        linear-gradient(
+            180deg,
+            white,
+            #f9a8d4,
+            #ec4899
+        );
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+
+    animation:
+        pop
+        .9s
+        ease;
+}
+
+@keyframes pop{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            scale(.4);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            scale(1);
+    }
+}
+
+
+/* =========================
+   GIFT
+========================= */
+
+.gift-area{
+
+    width:210px;
+
+    height:200px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin:20px;
+}
+
+.gift{
+
+    position:relative;
+
+    width:140px;
+
+    height:110px;
+
+    cursor:pointer;
+
+    transition:.5s;
+
+    filter:
+        drop-shadow(
+            0 20px 35px
+            rgba(236,72,153,.45)
+        );
+}
+
+.gift:hover{
+
+    transform:
+        translateY(-8px)
+        scale(1.07);
+}
+
+.gift-body{
+
+    position:absolute;
+
+    bottom:0;
+
+    width:140px;
+
+    height:85px;
+
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fb7185,
+            #be185d
+        );
+}
+
+.gift-lid{
+
+    position:absolute;
+
+    top:12px;
+
+    left:-8px;
+
+    width:156px;
+
+    height:36px;
+
+    border-radius:9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f43f5e,
+            #9d174d
+        );
+
+    z-index:2;
+}
+
+.ribbon-v{
+
+    position:absolute;
+
+    left:55px;
+
+    bottom:0;
+
+    width:30px;
+
+    height:110px;
+
+    background:#fde7f3;
+
+    z-index:3;
+}
+
+.ribbon-h{
+
+    position:absolute;
+
+    left:-8px;
+
+    top:20px;
+
+    width:156px;
+
+    height:15px;
+
+    background:#fde7f3;
+
+    z-index:4;
+}
+
+.bow{
+
+    position:absolute;
+
+    top:-14px;
+
+    left:44px;
+
+    width:52px;
+
+    height:25px;
+
+    z-index:5;
+}
+
+.bow::before,
+.bow::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:32px;
+
+    height:24px;
+
+    border:
+        8px solid
+        #fde7f3;
+}
+
+.bow::before{
+
+    left:-13px;
+
+    transform:
+        rotate(25deg);
+
+    border-radius:
+        70% 30% 60% 40%;
+}
+
+.bow::after{
+
+    right:-13px;
+
+    transform:
+        rotate(-25deg);
+
+    border-radius:
+        30% 70% 40% 60%;
+}
+
+
+/* =========================
+   LETTER
+========================= */
+
+.letter{
+
+    display:none;
+
+    max-width:480px;
+
+    padding:28px 23px;
+
+    border-radius:26px;
+
+    background:
+        rgba(255,255,255,.07);
+
+    border:
+        1px solid
+        rgba(255,255,255,.14);
+
+    animation:
+        letterIn
+        .8s
+        ease;
+}
+
+.letter.show{
+
+    display:block;
+}
+
+.letter-icon{
+
+    font-size:58px;
+}
+
+.letter h2{
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:36px;
+
+    font-weight:500;
+
+    margin:8px 0 15px;
+}
+
+.letter p{
+
+    color:
+        rgba(255,255,255,.7);
+
+    line-height:1.85;
+
+    font-size:15px;
+
+    margin:10px 0;
+}
+
+.signature{
+
+    margin-top:20px;
+
+    color:#f9a8d4;
+
+    font-weight:800;
+
+    line-height:1.7;
+}
+
+@keyframes letterIn{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(20px)
+            scale(.92);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            none;
+    }
+}
+
+
+@media(max-width:500px){
+
+    .container{
+
+        width:95%;
+
+        border-radius:28px;
+    }
+
+    .page{
+
+        min-height:680px;
+
+        padding:
+            45px 18px;
+    }
+
+    h1{
+
+        font-size:42px;
+
+        letter-spacing:-2px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<div class="stars"></div>
+
+
+<div class="hearts">
+
+    <span>♡</span>
+    <span>♥</span>
+    <span>♡</span>
+    <span>♥</span>
+
+</div>
+
+
+<div class="container">
+
+
+<!-- MUSIC -->
+
+<button
+    class="music-button"
+    id="musicButton"
+>
+    ♪ Music OFF
+</button>
+
+
+<!-- =========================
+     PAGE 1
+========================= -->
+
+<section
+    class="page active"
+    id="page1"
+>
+
+    <div class="eyebrow">
+        A little surprise
+    </div>
+
+    <div class="big-heart">
+        ❤️
+    </div>
+
+    <h1>
+        For Anam
+    </h1>
+
+    <p class="subtitle">
+
+        I made something
+        especially for you.
+
+        <br><br>
+
+        There is one very important
+        question I want you to answer.
+
+    </p>
+
+
+    <button
+        class="primary"
+        id="begin"
+    >
+        Begin ✨
+    </button>
+
+</section>
+
+
+
+<!-- =========================
+     PAGE 2
+========================= -->
+
+<section
+    class="page"
+    id="page2"
+>
+
+    <div class="eyebrow">
+        Love Measurement System
+    </div>
+
+    <h1>
+        How much<br>
+        do you love me?
+    </h1>
+
+
+    <div class="meter">
+
+        <div
+            class="emoji"
+            id="emoji"
+        >
+            🤔
+        </div>
+
+
+        <div
+            class="percentage"
+            id="percentage"
+        >
+            0%
+        </div>
+
+
+        <div
+            class="message"
+            id="message"
+        >
+            Move the scale to begin...
+        </div>
+
+
+        <div class="progress">
+
+            <div
+                class="progress-bar"
+                id="progress"
+            ></div>
+
+        </div>
+
+
+        <input
+            type="range"
+            id="slider"
+            min="0"
+            max="100"
+            value="0"
+        >
+
+
+        <div class="labels">
+
+            <span>0%</span>
+
+            <span>50%</span>
+
+            <span>100% ❤️</span>
+
+        </div>
+
+
+        <div
+            class="warning"
+            id="warning"
+        ></div>
+
+
+        <button
+            class="primary"
+            id="lock"
+            disabled
+        >
+            Lock my answer 🔒
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     PAGE 3
+========================= -->
+
+<section
+    class="page"
+    id="page3"
+>
+
+    <div
+        style="
+        font-size:30px;
+        letter-spacing:8px;
+        "
+    >
+        ✨ 💗 ✨
+    </div>
+
+
+    <div class="hundred">
+        100%
+    </div>
+
+
+    <h1>
+        YOU BROKE<br>
+        THE SCALE.
+    </h1>
+
+
+    <p class="subtitle">
+
+        Anam...
+
+        <br><br>
+
+        The system was only designed
+        to measure up to 100%.
+
+        Apparently,
+        even that wasn't enough.
+
+    </p>
+
+
+    <button
+        class="primary"
+        id="giftButton"
+    >
+        There is something for you 🎁
+    </button>
+
+</section>
+
+
+
+<!-- =========================
+     PAGE 4
+========================= -->
+
+<section
+    class="page"
+    id="page4"
+>
+
+    <div class="eyebrow">
+        Especially for Anam
+    </div>
+
+
+    <h1>
+        A little gift<br>
+        for you.
+    </h1>
+
+
+    <div class="gift-area">
+
+        <div
+            class="gift"
+            id="gift"
+        >
+
+            <div class="bow"></div>
+
+            <div class="gift-lid"></div>
+
+            <div class="gift-body"></div>
+
+            <div class="ribbon-v"></div>
+
+            <div class="ribbon-h"></div>
+
+        </div>
+
+    </div>
+
+
+    <div
+        id="tapText"
+        style="
+        color:rgba(255,255,255,.5);
+        "
+    >
+        Tap the gift to open it 🎁
+    </div>
+
+
+    <div
+        class="letter"
+        id="letter"
+    >
+
+        <div class="letter-icon">
+            💌
+        </div>
+
+
+        <h2>
+            Dear Anam
+        </h2>
+
+
+        <p>
+
+            I made this little world
+            just for you.
+
+        </p>
+
+
+        <p>
+
+            The scale was supposed
+            to measure something simple...
+
+            but I think we discovered
+            a problem.
+
+            <strong>
+                There isn't really
+                a number big enough.
+            </strong>
+
+        </p>
+
+
+        <p>
+
+            I hope this little surprise
+            made you smile.
+
+            Because honestly,
+            seeing you smile is already
+            something special to me. ❤️
+
+        </p>
+
+
+        <div class="signature">
+
+            With love,
+
+            <br>
+
+            Abdul Rahman ❤️
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</div>
+
+
+
+<!-- =========================
+     AUDIO
+========================= -->
+
+<audio
+    id="song"
+    loop
+    autoplay
+>
+
+    <source
+        src="_Safari_Rmx_Ringtone_(by Fringster.com).mp3"
+        type="audio/mpeg"
+    >
+
+</audio>
+
+
+
+<script>
+
+
+/* =========================
+   PAGE SYSTEM
+========================= */
+
+const pages = [
+    document.getElementById("page1"),
+    document.getElementById("page2"),
+    document.getElementById("page3"),
+    document.getElementById("page4")
+];
+
+
+function showPage(number){
+
+    pages.forEach(page => {
+
+        page.classList.remove("active");
+
+    });
+
+    pages[number].classList.add("active");
+
+}
+
+
+
+/* =========================
+   MUSIC
+========================= */
+
+const song =
+    document.getElementById("song");
+
+const musicButton =
+    document.getElementById("musicButton");
+
+
+let musicPlaying = false;
+
+
+function updateMusicButton(label){
+
+    musicButton.textContent =
+        label;
+
+}
+
+
+function startMusic(){
+
+    song.volume = 0.35;
+
+    song.play()
+        .then(() => {
+
+            musicPlaying = true;
+
+            updateMusicButton("♪ Music ON");
+
+        })
+        .catch(error => {
+
+            updateMusicButton("♪ Play Music");
+
+        });
+
+}
+
+
+function stopMusic(){
+
+    song.pause();
+
+    musicPlaying = false;
+
+    updateMusicButton("♪ Music OFF");
+
+}
+
+
+musicButton.addEventListener(
+    "click",
+    () => {
+
+        if(musicPlaying){
+
+            stopMusic();
+
+        }
+        else{
+
+            startMusic();
+
+        }
+
+    }
+);
+
+
+startMusic();
+
+
+
+/* =========================
+   BEGIN
+========================= */
+
+document
+.getElementById("begin")
+.addEventListener(
+    "click",
+    () => {
+
+        startMusic();
+
+        showPage(1);
+
+    }
+);
+
+
+
+/* =========================
+   LOVE SCALE
+========================= */
+
+const slider =
+    document.getElementById("slider");
+
+const percentage =
+    document.getElementById("percentage");
+
+const progress =
+    document.getElementById("progress");
+
+const emoji =
+    document.getElementById("emoji");
+
+const message =
+    document.getElementById("message");
+
+const warning =
+    document.getElementById("warning");
+
+const lock =
+    document.getElementById("lock");
+
+
+
+slider.addEventListener(
+    "input",
+    () => {
+
+        const value =
+            Number(slider.value);
+
+
+        percentage.textContent =
+            value + "%";
+
+
+        progress.style.width =
+            value + "%";
+
+
+        lock.disabled =
+            value === 0;
+
+
+        if(value === 0){
+
+            emoji.textContent =
+                "🤔";
+
+            message.textContent =
+                "Move the scale to begin...";
+
+        }
+
+        else if(value < 20){
+
+            emoji.textContent =
+                "🙂";
+
+            message.textContent =
+                "A cute beginning...";
+
+        }
+
+        else if(value < 40){
+
+            emoji.textContent =
+                "😊";
+
+            message.textContent =
+                "Okay... this is promising.";
+
+        }
+
+        else if(value < 60){
+
+            emoji.textContent =
+                "🥰";
+
+            message.textContent =
+                "The system is getting excited.";
+
+        }
+
+        else if(value < 80){
+
+            emoji.textContent =
+                "💕";
+
+            message.textContent =
+                "Serious affection detected.";
+
+        }
+
+        else if(value < 95){
+
+            emoji.textContent =
+                "💖";
+
+            message.textContent =
+                "Almost there...";
+
+        }
+
+        else if(value < 100){
+
+            emoji.textContent =
+                "😳";
+
+            message.textContent =
+                "ANAM... are you sure?!";
+
+            warning.textContent =
+                "The system is becoming unstable...";
+
+        }
+
+        else{
+
+            emoji.textContent =
+                "💘";
+
+            message.textContent =
+                "MAXIMUM LOVE DETECTED.";
+
+            warning.textContent =
+                "";
+
+        }
+
+    }
+);
+
+
+
+/* =========================
+   LOCK
+========================= */
+
+lock.addEventListener(
+    "click",
+    () => {
+
+        const value =
+            Number(slider.value);
+
+
+        if(value === 100){
+
+            showPage(2);
+
+            /*
+              Slightly raise volume
+              for the big reveal.
+            */
+
+            song.volume = 0.5;
+
+        }
+
+        else{
+
+            warning.textContent =
+                "Hmm... the system requires 100%. 😏";
+
+        }
+
+    }
+);
+
+
+
+/* =========================
+   GIFT PAGE
+========================= */
+
+document
+.getElementById("giftButton")
+.addEventListener(
+    "click",
+    () => {
+
+        showPage(3);
+
+    }
+);
+
+
+
+/* =========================
+   OPEN GIFT
+========================= */
+
+const gift =
+    document.getElementById("gift");
+
+const letter =
+    document.getElementById("letter");
+
+const tapText =
+    document.getElementById("tapText");
+
+
+gift.addEventListener(
+    "click",
+    () => {
+
+        gift.style.transform =
+            "translateY(-20px) scale(.8) rotate(-6deg)";
+
+        tapText.textContent =
+            "Gift opened ❤️";
+
+
+        setTimeout(
+            () => {
+
+                letter.classList.add("show");
+
+            },
+            400
+        );
+
+    }
+);
+
+</script>
+
+</body>
+</html>
